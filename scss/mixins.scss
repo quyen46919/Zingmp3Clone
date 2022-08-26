@@ -1,0 +1,71 @@
+@mixin padding($padding: 0) {
+  box-sizing: border-box;
+  padding: $padding;
+}
+
+@mixin displayFlex(
+  $direc: column,
+  $wrap: nowrap,
+  $justy: center,
+  $align: center
+) {
+  display: flex;
+  flex-direction: $direc;
+  justify-content: $justy;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin stackRow($gap: 0) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: $gap;
+}
+
+@mixin stackColumn($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: $gap;
+}
+
+@mixin displayGridAutoFit($width: 250px, $alignItems: flex-start) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
+  align-items: $alignItems;
+}
+
+@mixin customScrollbar($width: 10px, $height: 0px) {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: $width;
+    height: $height;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(214, 214, 214);
+    border-radius: 5px;
+  }
+}
+
+@mixin oneLineTextOverflow($maxWidth: 100%) {
+  max-width: $maxWidth;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// MEDIA QUERIES DESKTOP FIRST
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+// MEDIA QUERIES MOBILE FIRST
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
