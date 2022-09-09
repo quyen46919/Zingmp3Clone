@@ -2,6 +2,8 @@
 $primaryBlue: #1d375a;
 $secondaryBlue: #344b6b;
 $darkBlue: #172c48;
+$opacityBlack: rgba(0, 0, 0, 0.336);
+$opacityWhite: rgba(255, 255, 255, 0.126);
 
 // text color
 $titleColor: #fff;
@@ -9,22 +11,32 @@ $subTitleColor: #8c99ab;
 $linkColor: #dadada;
 $dividerColor: #3f5472;
 $tooltipColor: #000000;
+$textColor: #ffffff80;
 
 // general color
 $white: #fff;
 $yellow: #ffdb00;
+$purpose: #bd4dbd;
+$transparent: transparent;
 
 //general
 $primaryTransition: 0.5s ease-in-out;
 $secondaryTransition: 0.2s ease-in-out;
+$transitionAll: all 0.3s;
 
 // component size
 $menuLeftWidth: 250px;
+$menuLeftWidthRes: 70px;
+$itemCardWidth: 200px;
+$itemZingchartWidth: 100px;
+$itemCardWidth: 120px;
 
 // svgs
 $zingmp3Logo: url(https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg);
 
 $zingmp3LogoIcon: url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.29/static/media/icon_zing_mp3_60.f6b51045.svg);
+
+$zingpm3UserIcon: url(https://avatar.talk.zdn.vn/default);
 
 // breakpoints
 $xs: 0px;
