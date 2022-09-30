@@ -75,20 +75,54 @@
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <input
                   type="text"
+                  spellcheck="false"
                   placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát..."
                 />
               </div>
             </div>
             <div class="header--right">
-              <i class="fa fa-adjust" aria-hidden="true"></i>
-              <i class="fa fa-diamond" aria-hidden="true"></i>
-              <i class="fa fa-upload" aria-hidden="true"></i>
-              <i class="fa fa-cog" aria-hidden="true"></i>
-              <div class="header--avatar"></div>
+              <button>
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+              </button>
+              <button>
+                <i class="fa fa-diamond" aria-hidden="true"></i>
+              </button>
+              <button>
+                <i class="fa fa-upload" aria-hidden="true"></i></button
+              ><button>
+                <i class="fa fa-cog" aria-hidden="true"></i>
+              </button>
+              <div
+                class="header--avatar"
+                id="header--avatar"
+                onclick="toggleMenu()"
+              ></div>
+
+              <div class="header--popup" id="header--popup">
+                <div class="header--popup--vip">
+                  <div class="header--popup--upgrade">
+                    <i class="fa-regular fa-gem"></i>
+                    <p>Nâng cấp VIP</p>
+                  </div>
+                  <div class="header--popup--buy">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <p>Mua code VIP</p>
+                  </div>
+                </div>
+                <div class="header--popup--logout">
+                  <i class="fa-regular fa-user"></i>
+                  <p>Đăng xuất</p>
+                </div>
+              </div>
+              <div
+                onclick="toggleMenu()"
+                class="header--backdrop"
+                id="header--backdrop"
+              ></div>
             </div>
           </div>
           <div class="homepage__poster">
-            <!-- <div class="homepage__poster--item">
+            <div class="homepage__poster--item">
               <img
                 src="https://photo-zmp3.zmdcdn.me/banner/d/f/b/f/dfbfecf8cf79b702e63add37e7df5b19.jpg"
                 alt=""
@@ -117,7 +151,7 @@
                 src="https://photo-zmp3.zmdcdn.me/banner/5/a/7/3/5a739433cd9c33316032a694be6acbb5.jpg"
                 alt=""
               />
-            </div> -->
+            </div>
           </div>
           <div class="homepage__trending">
             <h2>Mới Phát Hành</h2>
@@ -156,7 +190,66 @@
                   <div class="homepage__trending--cover">
                     <div class="homepage__trending--img">
                       <img
-                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
+                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/d/5/0/ad508c71f98947a0cf60c8cf26cd9523.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="homepage__trending--title">
+                      <h4>Sashimi</h4>
+                      <span>Chi Pu</span>
+                      <span>1 ngày trước</span>
+                    </div>
+                  </div>
+                  <div class="homepage__trending--icon">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="homepage__trending--card">
+                  <div class="homepage__trending--cover">
+                    <div class="homepage__trending--img">
+                      <img
+                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/1/4/4/4/1444bcd1da05066e7562e0e34c609ff4.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="homepage__trending--title">
+                      <h4>Sashimi</h4>
+                      <span>Chi Pu</span>
+                      <span>1 ngày trước</span>
+                    </div>
+                  </div>
+                  <div class="homepage__trending--icon">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="homepage__trending--card">
+                  <div class="homepage__trending--cover">
+                    <div class="homepage__trending--img">
+                      <img
+                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/1/e/2/6/1e26a636285565f3454809c793cf720d.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="homepage__trending--title">
+                      <h4>Sashimi</h4>
+                      <span>Chi Pu</span>
+                      <span>1 ngày trước</span>
+                    </div>
+                  </div>
+                  <div class="homepage__trending--icon">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="homepage__trending--col">
+                <div class="homepage__trending--card">
+                  <div class="homepage__trending--cover">
+                    <div class="homepage__trending--img">
+                      <img
+                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/b/2/3/5/b23523f74ca4b55e1774fd8a7b468977.jpg"
                         alt=""
                       />
                     </div>
@@ -176,6 +269,25 @@
                     <div class="homepage__trending--img">
                       <img
                         src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="homepage__trending--title">
+                      <h4>Sashimi</h4>
+                      <span>Chi Pu</span>
+                      <span>1 ngày trước</span>
+                    </div>
+                  </div>
+                  <div class="homepage__trending--icon">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="homepage__trending--card">
+                  <div class="homepage__trending--cover">
+                    <div class="homepage__trending--img">
+                      <img
+                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/8/0/a/a80af5e72bb9ad8f0a2b2156d9439dec.jpg"
                         alt=""
                       />
                     </div>
@@ -215,7 +327,7 @@
                   <div class="homepage__trending--cover">
                     <div class="homepage__trending--img">
                       <img
-                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
+                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/8/2/0/5/8205aadf98e6865317a5eae7ae6c59c7.jpg"
                         alt=""
                       />
                     </div>
@@ -253,85 +365,7 @@
                   <div class="homepage__trending--cover">
                     <div class="homepage__trending--img">
                       <img
-                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="homepage__trending--title">
-                      <h4>Sashimi</h4>
-                      <span>Chi Pu</span>
-                      <span>1 ngày trước</span>
-                    </div>
-                  </div>
-                  <div class="homepage__trending--icon">
-                    <i class="fa fa-play" aria-hidden="true"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="homepage__trending--card">
-                  <div class="homepage__trending--cover">
-                    <div class="homepage__trending--img">
-                      <img
-                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="homepage__trending--title">
-                      <h4>Sashimi</h4>
-                      <span>Chi Pu</span>
-                      <span>1 ngày trước</span>
-                    </div>
-                  </div>
-                  <div class="homepage__trending--icon">
-                    <i class="fa fa-play" aria-hidden="true"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="homepage__trending--col">
-                <div class="homepage__trending--card">
-                  <div class="homepage__trending--cover">
-                    <div class="homepage__trending--img">
-                      <img
-                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="homepage__trending--title">
-                      <h4>Sashimi</h4>
-                      <span>Chi Pu</span>
-                      <span>1 ngày trước</span>
-                    </div>
-                  </div>
-                  <div class="homepage__trending--icon">
-                    <i class="fa fa-play" aria-hidden="true"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="homepage__trending--card">
-                  <div class="homepage__trending--cover">
-                    <div class="homepage__trending--img">
-                      <img
-                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="homepage__trending--title">
-                      <h4>Sashimi</h4>
-                      <span>Chi Pu</span>
-                      <span>1 ngày trước</span>
-                    </div>
-                  </div>
-                  <div class="homepage__trending--icon">
-                    <i class="fa fa-play" aria-hidden="true"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="homepage__trending--card">
-                  <div class="homepage__trending--cover">
-                    <div class="homepage__trending--img">
-                      <img
-                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/a/9/0/8/a9080992c6ac9ed09f185425105a9014.jpg"
+                        src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/6/a/6/2/6a62dbae52c9a4206cf99818a266bdbc.jpg"
                         alt=""
                       />
                     </div>
@@ -383,9 +417,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <div class="homepage__weekend--icon"></div>
@@ -401,9 +437,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -418,9 +456,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -438,9 +478,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -455,9 +497,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -472,9 +516,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <div class="homepage__weekend--icon"></div>
@@ -490,9 +536,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -507,9 +555,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -527,9 +577,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -544,9 +596,11 @@
                     />
                   </div>
                   <div class="homepage__weekend--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <h4>Nhạc Cho Chủ Nhật</h4>
@@ -566,9 +620,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -588,9 +644,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -610,9 +668,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -632,9 +692,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -654,9 +716,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -676,9 +740,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -698,9 +764,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -720,9 +788,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -742,9 +812,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -764,9 +836,11 @@
                     />
                   </div>
                   <div class="homepage__new--cover-backdrop">
-                    <i class="fa-regular fa-heart"></i
-                    ><i class="fa-regular fa-circle-play"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <button><i class="fa-regular fa-heart"></i></button>
+                    <button><i class="fa-regular fa-circle-play"></i></button>
+                    <button>
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
                 <a href="#"> <h4>V-Pop Tháng 9/2022</h4></a>
@@ -841,6 +915,80 @@
                 src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/mr-siro.png"
                 alt=""
               />
+            </div>
+            <div class="homepage__singer--item">
+              <img
+                src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/mr-siro.png"
+                alt=""
+              />
+            </div>
+            <div class="homepage__singer--item">
+              <img
+                src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/mr-siro.png"
+                alt=""
+              />
+            </div>
+            <div class="homepage__singer--item">
+              <img
+                src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/mr-siro.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="homepage__event">
+            <div class="homepage__event--item">
+              <div class="homepage__event--img">
+                <img
+                  src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/a/7/c/a/a7ca676d54709ccdebe19f532d9caf7f.jpg"
+                  alt=""
+                />
+                <div class="homepage__event--title">
+                  <span>phát hành bài hát</span>
+                  <h4>
+                    Chẳng Thể Nghe Con Tim - Phát Huy T4 Chẳng Thể Nghe Con Tim
+                    - Phát Huy T4
+                  </h4>
+                  <p>20:00 Thứ Bảy, 17 tháng 9</p>
+                </div>
+              </div>
+              <div class="homepage__event--care">
+                <p>Lượt quan tâm: 125</p>
+                <button>QUAN TÂM</button>
+              </div>
+            </div>
+            <div class="homepage__event--item">
+              <div class="homepage__event--img">
+                <img
+                  src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/a/7/c/a/a7ca676d54709ccdebe19f532d9caf7f.jpg"
+                  alt=""
+                />
+                <div class="homepage__event--title">
+                  <span>phát hành bài hát</span>
+                  <h4>Chẳng Thể Nghe Con Tim - Phát Huy T4</h4>
+                  <p>20:00 Thứ Bảy, 17 tháng 9</p>
+                </div>
+              </div>
+              <div class="homepage__event--care">
+                <p>Lượt quan tâm: 125</p>
+                <button>QUAN TÂM</button>
+              </div>
+            </div>
+            <div class="homepage__event--item">
+              <div class="homepage__event--img">
+                <img
+                  src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/a/7/c/a/a7ca676d54709ccdebe19f532d9caf7f.jpg"
+                  alt=""
+                />
+                <div class="homepage__event--title">
+                  <span>phát hành bài hát</span>
+                  <h4>Chẳng Thể Nghe Con Tim - Phát Huy T4</h4>
+                  <p>20:00 Thứ Bảy, 17 tháng 9</p>
+                </div>
+              </div>
+              <div class="homepage__event--care">
+                <p>Lượt quan tâm: 125</p>
+                <button>QUAN TÂM</button>
+              </div>
             </div>
           </div>
           <div class="homepage__footer">
@@ -925,5 +1073,7 @@
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
     <script src="./pages/home_page/poster.js"></script>
+    <script src="./pages//home_page//singer.js"></script>
+    <script src="./scss/header/accountPopUp.js"></script>
   </body>
 </html>

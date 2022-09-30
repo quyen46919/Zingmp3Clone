@@ -1,7 +1,8 @@
 // background color
-$primaryBlue: #1d375a;
-$secondaryBlue: #344b6b;
+$primaryBlue: #101f3f;
+$secondaryBlue: #1c2a49;
 $darkBlue: #172c48;
+$brightBlue: #304470;
 $opacityBlack: rgba(0, 0, 0, 0.336);
 $opacityWhite: rgba(255, 255, 255, 0.126);
 
@@ -12,17 +13,24 @@ $linkColor: #dadada;
 $dividerColor: #3f5472;
 $tooltipColor: #000000;
 $textColor: #ffffff80;
+$titleColor2: #ff0101;
 
 // general color
 $white: #fff;
 $yellow: #ffdb00;
 $purpose: #bd4dbd;
+$gray: #ffffff28;
 $transparent: transparent;
 
 //general
 $primaryTransition: 0.5s ease-in-out;
 $secondaryTransition: 0.2s ease-in-out;
-$transitionAll: all 0.3s;
+$cardHoverTransition: all 0.3s;
+$primaryOpacity: 0.7;
+$imageScale: 1.05;
+$baseZIndex: 3;
+$backdropZIndex: 2;
+$textFontsize: 14px;
 
 // component size
 $menuLeftWidth: 250px;
@@ -44,3 +52,7 @@ $sm: 600px;
 $md: 900px;
 $lg: 1200px;
 $xl: 1536px;
+
+//
+$minWidthPage: 800px;
+$optionPopupHeight: 44px;
