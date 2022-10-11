@@ -490,6 +490,7 @@ button {
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: nowrap;
+  margin-bottom: 20px;
 }
 .homepage__new--row {
   width: 100%;
@@ -588,11 +589,16 @@ button {
   width: 100%;
 }
 .homepage__new h4 {
+  overflow: hidden;
   margin: 0;
   box-sizing: border-box;
   padding: 5px 0;
   font-size: 14px;
   color: #fff;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .homepage__new h4:hover {
   color: #bd4dbd;
@@ -616,7 +622,6 @@ button {
   -webkit-box-orient: vertical;
 }
 .homepage__chart {
-  height: 410px;
   width: 100%;
   overflow: hidden;
   border-radius: 5px;
@@ -641,6 +646,7 @@ button {
 .homepage__chart--hashtag a {
   font-size: 28px;
   font-weight: 700;
+  margin: 0px;
 }
 .homepage__chart--hashtag a:hover {
   color: #0daf94;
@@ -649,7 +655,6 @@ button {
   background-color: transparent;
   cursor: pointer;
   border: none;
-  background-color: transparent;
 }
 .homepage__chart--hashtag button.icon:hover {
   background-color: transparent;
@@ -671,9 +676,22 @@ button {
   flex-wrap: nowrap;
   gap: 40px;
 }
+@media screen and (max-width: 1200px) {
+  .homepage__chart--content {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
 .homepage__chart--left {
-  height: 100%;
   width: 41%;
+}
+@media screen and (max-width: 1200px) {
+  .homepage__chart--left {
+    width: 100%;
+  }
 }
 .homepage__chart--col {
   height: 100%;
@@ -686,11 +704,10 @@ button {
   gap: 10px;
 }
 .homepage__chart--card {
-  height: 22%;
+  height: 80px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.05);
   z-index: 3;
-  position: relative;
   cursor: pointer;
   box-sizing: border-box;
   padding: 10px;
@@ -714,7 +731,7 @@ button {
 }
 .homepage__chart--cover {
   height: 100%;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -724,6 +741,7 @@ button {
 .homepage__chart--cover span.number {
   font-size: 32px;
   font-weight: 900;
+  margin: 0px;
   text-align: center;
   font-family: "Roboto", sans-serif;
   white-space: nowrap;
@@ -733,13 +751,15 @@ button {
   padding: 0 20px 0 10px;
 }
 .homepage__chart--cover span.per {
-  font-weight: 700;
   font-size: 16px;
+  font-weight: 700;
+  margin: 0px;
   line-height: 1.56;
 }
 .homepage__chart--img {
   height: 100%;
   width: 70px;
+  position: relative;
   background-size: cover;
   margin-right: 10px;
   border-radius: 10px;
@@ -747,7 +767,7 @@ button {
 }
 .homepage__chart--title {
   height: 100%;
-  width: 65%;
+  width: 75%;
   overflow: hidden;
   margin-right: 10px;
   display: flex;
@@ -777,20 +797,22 @@ button {
   z-index: 3;
 }
 .homepage__chart--icon {
-  width: 65%;
+  width: 70px;
+  height: 100%;
   transition: all 0.3s;
   opacity: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  transform: translate(50%, -50%);
   box-sizing: border-box;
   padding: 0 10px 0 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  z-index: 100;
 }
 .homepage__chart button {
   cursor: pointer;
@@ -807,18 +829,20 @@ button {
   opacity: 1;
 }
 .homepage__chart--card:hover .homepage__chart--img {
-  opacity: 0.3;
+  opacity: 0.7;
 }
 .homepage__chart--card:hover {
   background: rgba(255, 255, 255, 0.126);
 }
 .homepage__chart--right {
-  height: 100%;
   width: 59%;
 }
+@media screen and (max-width: 1200px) {
+  .homepage__chart--right {
+    width: 100%;
+  }
+}
 .homepage__chart--right--chart {
-  width: 100%;
-  height: 70%;
   z-index: 100;
   display: flex;
   flex-direction: row;

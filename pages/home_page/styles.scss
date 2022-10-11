@@ -455,6 +455,7 @@ button {
       $justy: flex-start,
       $align: flex-start
     );
+    margin-bottom: 20px;
     &--row {
       width: 100%;
       @include displayGridAutoFit($width: 200px);
@@ -549,10 +550,12 @@ button {
     }
 
     h4 {
+      overflow: hidden;
       margin: 0;
       @include padding(5px 0);
       font-size: 14px;
       color: $white;
+      @include oneLineTextOverflow();
     }
     h4:hover {
       color: $purpose;
@@ -573,7 +576,6 @@ button {
     }
   }
   &__chart {
-    height: 410px;
     width: 100%;
     overflow: hidden;
     border-radius: 5px;
@@ -595,17 +597,15 @@ button {
         $align: center
       );
       a {
-        font-size: 28px;
-        font-weight: 700;
+        @include h4TextStyles($fontSize: 28px, $fontWeight: 700);
       }
       a:hover {
-        color: #0daf94;
+        color: $green;
       }
       button.icon {
         background-color: $transparent;
         cursor: pointer;
         border: none;
-        background-color: $transparent;
         &:hover {
           background-color: $transparent;
         }
@@ -627,12 +627,22 @@ button {
         $justy: flex-start,
         $align: center
       );
+      @include maxWidth($lg) {
+        @include displayFlex(
+          $direc: column-reverse,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+      }
 
       gap: 40px;
     }
     &--left {
-      height: 100%;
       width: 41%;
+      @include maxWidth($lg) {
+        width: 100%;
+      }
     }
     &--col {
       height: 100%;
@@ -646,11 +656,10 @@ button {
       gap: 10px;
     }
     &--card {
-      height: 22%;
+      height: $smallCardHeight;
       width: 100%;
       background-color: $opacityWhite2;
       z-index: $baseZIndex;
-      position: relative;
       cursor: pointer;
       @include padding(10px);
       border-radius: 5px;
@@ -659,24 +668,18 @@ button {
         @include oneLineTextOverflow();
       }
     }
-    // @for $i from 1 to 4 {
-    //   &--card:nth-child(#{$i}) > .homepage__chart--cover span.number {
-    //     color: $transparent;
-    //     -webkit-text-stroke: 2px rgb(random(255), random(255), random(255));
-    //   }
-    // }
     &--card:nth-child(1) > .homepage__chart--cover span.number {
-      -webkit-text-stroke: 2px #4a90e2;
+      -webkit-text-stroke: 2px $blue;
     }
     &--card:nth-child(2) > .homepage__chart--cover span.number {
-      -webkit-text-stroke: 2px #50e3c2;
+      -webkit-text-stroke: 2px $green2;
     }
     &--card:nth-child(3) > .homepage__chart--cover span.number {
-      -webkit-text-stroke: 2px #e35050;
+      -webkit-text-stroke: 2px $orange;
     }
     &--cover {
       height: 100%;
-      width: 90%;
+      width: 100%;
       @include displayFlex(
         $direc: row,
         $wrap: nowrap,
@@ -684,8 +687,7 @@ button {
         $align: center
       );
       span.number {
-        font-size: 32px;
-        font-weight: 900;
+        @include h4TextStyles($fontSize: 32px, $fontWeight: 900, $margin: 0px);
         text-align: center;
         font-family: "Roboto", sans-serif;
         white-space: nowrap;
@@ -694,14 +696,14 @@ button {
         @include padding(0 20px 0 10px);
       }
       span.per {
-        font-weight: 700;
-        font-size: 16px;
+        @include h4TextStyles($fontSize: 16px, $fontWeight: 700, $margin: 0px);
         line-height: 1.56;
       }
     }
     &--img {
       height: 100%;
       width: 70px;
+      position: relative;
       background-size: cover;
       margin-right: 10px;
       border-radius: 10px;
@@ -709,7 +711,7 @@ button {
     }
     &--title {
       height: 100%;
-      width: 65%;
+      width: 75%;
       overflow: hidden;
       margin-right: 10px;
       @include displayFlex(
@@ -726,7 +728,7 @@ button {
         color: $textColor;
       }
       a:hover {
-        color: #0daf94;
+        color: $green;
         z-index: $baseZIndex;
       }
       span {
@@ -738,20 +740,22 @@ button {
       }
     }
     &--icon {
-      width: 65%;
+      width: 70px;
+      height: 100%;
       transition: $cardHoverTransition;
       opacity: 0;
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      right: 50%;
+      transform: translate(50%, -50%);
       @include padding(0 10px 0 10px);
       @include displayFlex(
         $direc: row,
         $wrap: nowrap,
-        $justy: space-between,
+        $justy: center,
         $align: center
       );
+      z-index: 100;
     }
     button {
       cursor: pointer;
@@ -768,24 +772,17 @@ button {
       opacity: 1;
     }
     &--card:hover .homepage__chart--img {
-      opacity: 0.3;
+      opacity: 0.7;
     }
     &--card:hover {
       background: $opacityWhite;
     }
     &--right {
-      height: 100%;
       width: 59%;
-      // @include displayFlex(
-      //   $direc: row,
-      //   $wrap: nowrap,
-      //   $justy: center,
-      //   $align: center
-      // );
-      // z-index: 100;
-      &--chart {
+      @include maxWidth($lg) {
         width: 100%;
-        height: 70%;
+      }
+      &--chart {
         z-index: 100;
         @include displayFlex(
           $direc: row,
@@ -1009,19 +1006,11 @@ button {
       height: auto;
 
       @include displayFlex(
-          $direc: row,
-          $wrap: wrap,
-          $justy: center,
-          $align: center
-        )
-        // {
-        //   display: flex;
-        //   flex-direction: $direc;
-        //   justify-content: $justy;
-        //   align-items: $align;
-        //   flex-wrap: $wrap;
-        // }
-;
+        $direc: row,
+        $wrap: wrap,
+        $justy: center,
+        $align: center
+      );
     }
     &--item {
       width: $itemCardWidth;
