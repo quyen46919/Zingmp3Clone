@@ -615,6 +615,217 @@ button {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+.homepage__chart {
+  height: 410px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #2b4577;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.homepage__chart--hashtag {
+  height: 19%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.homepage__chart--hashtag a {
+  font-size: 28px;
+  font-weight: 700;
+}
+.homepage__chart--hashtag a:hover {
+  color: #0daf94;
+}
+.homepage__chart--hashtag button.icon {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.homepage__chart--hashtag button.icon:hover {
+  background-color: transparent;
+}
+.homepage__chart--hashtag i {
+  color: #fff;
+  font-size: 34px;
+}
+.homepage__chart--hashtag i:hover {
+  filter: opacity(0.7);
+}
+.homepage__chart--content {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 40px;
+}
+.homepage__chart--left {
+  height: 100%;
+  width: 41%;
+}
+.homepage__chart--col {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.homepage__chart--card {
+  height: 22%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  z-index: 3;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+}
+.homepage__chart--card h4 {
+  margin: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.homepage__chart--card:nth-child(1) > .homepage__chart--cover span.number {
+  -webkit-text-stroke: 2px #4a90e2;
+}
+.homepage__chart--card:nth-child(2) > .homepage__chart--cover span.number {
+  -webkit-text-stroke: 2px #50e3c2;
+}
+.homepage__chart--card:nth-child(3) > .homepage__chart--cover span.number {
+  -webkit-text-stroke: 2px #e35050;
+}
+.homepage__chart--cover {
+  height: 100%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.homepage__chart--cover span.number {
+  font-size: 32px;
+  font-weight: 900;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  color: transparent;
+  opacity: 1;
+  box-sizing: border-box;
+  padding: 0 20px 0 10px;
+}
+.homepage__chart--cover span.per {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.56;
+}
+.homepage__chart--img {
+  height: 100%;
+  width: 70px;
+  background-size: cover;
+  margin-right: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.homepage__chart--title {
+  height: 100%;
+  width: 65%;
+  overflow: hidden;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  flex-wrap: nowrap;
+  gap: 5px;
+}
+.homepage__chart--title a {
+  padding: 0;
+  display: inline;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5019607843);
+}
+.homepage__chart--title a:hover {
+  color: #0daf94;
+  z-index: 3;
+}
+.homepage__chart--title span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5019607843);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 3;
+}
+.homepage__chart--icon {
+  width: 65%;
+  transition: all 0.3s;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 0 10px 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.homepage__chart button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 18px;
+  color: #fff;
+  margin-top: 10px;
+}
+.homepage__chart button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.homepage__chart--card:hover .homepage__chart--icon {
+  opacity: 1;
+}
+.homepage__chart--card:hover .homepage__chart--img {
+  opacity: 0.3;
+}
+.homepage__chart--card:hover {
+  background: rgba(255, 255, 255, 0.126);
+}
+.homepage__chart--right {
+  height: 100%;
+  width: 59%;
+}
+.homepage__chart--right--chart {
+  width: 100%;
+  height: 70%;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
 .homepage__zingchart {
   width: 100%;
   height: auto;

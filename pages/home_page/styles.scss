@@ -572,6 +572,230 @@ button {
       @include twoLineTextOverflow();
     }
   }
+  &__chart {
+    height: 410px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #2b4577;
+    @include padding(10px 20px);
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    gap: 10px;
+    &--hashtag {
+      height: 19%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      a {
+        font-size: 28px;
+        font-weight: 700;
+      }
+      a:hover {
+        color: #0daf94;
+      }
+      button.icon {
+        background-color: $transparent;
+        cursor: pointer;
+        border: none;
+        background-color: $transparent;
+        &:hover {
+          background-color: $transparent;
+        }
+      }
+      i {
+        color: $white;
+        font-size: 34px;
+      }
+      i:hover {
+        filter: opacity($primaryOpacity);
+      }
+    }
+    &--content {
+      height: 90%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+
+      gap: 40px;
+    }
+    &--left {
+      height: 100%;
+      width: 41%;
+    }
+    &--col {
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 10px;
+    }
+    &--card {
+      height: 22%;
+      width: 100%;
+      background-color: $opacityWhite2;
+      z-index: $baseZIndex;
+      position: relative;
+      cursor: pointer;
+      @include padding(10px);
+      border-radius: 5px;
+      h4 {
+        margin: 0;
+        @include oneLineTextOverflow();
+      }
+    }
+    // @for $i from 1 to 4 {
+    //   &--card:nth-child(#{$i}) > .homepage__chart--cover span.number {
+    //     color: $transparent;
+    //     -webkit-text-stroke: 2px rgb(random(255), random(255), random(255));
+    //   }
+    // }
+    &--card:nth-child(1) > .homepage__chart--cover span.number {
+      -webkit-text-stroke: 2px #4a90e2;
+    }
+    &--card:nth-child(2) > .homepage__chart--cover span.number {
+      -webkit-text-stroke: 2px #50e3c2;
+    }
+    &--card:nth-child(3) > .homepage__chart--cover span.number {
+      -webkit-text-stroke: 2px #e35050;
+    }
+    &--cover {
+      height: 100%;
+      width: 90%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      span.number {
+        font-size: 32px;
+        font-weight: 900;
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        white-space: nowrap;
+        color: $transparent;
+        opacity: 1;
+        @include padding(0 20px 0 10px);
+      }
+      span.per {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.56;
+      }
+    }
+    &--img {
+      height: 100%;
+      width: 70px;
+      background-size: cover;
+      margin-right: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    &--title {
+      height: 100%;
+      width: 65%;
+      overflow: hidden;
+      margin-right: 10px;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: center,
+        $align: space-between
+      );
+      gap: 5px;
+      a {
+        padding: 0;
+        display: inline;
+        font-size: 14px;
+        color: $textColor;
+      }
+      a:hover {
+        color: #0daf94;
+        z-index: $baseZIndex;
+      }
+      span {
+        font-size: 12px;
+        color: $textColor;
+        @include oneLineTextOverflow();
+
+        z-index: $baseZIndex;
+      }
+    }
+    &--icon {
+      width: 65%;
+      transition: $cardHoverTransition;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include padding(0 10px 0 10px);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+    }
+    button {
+      cursor: pointer;
+      background-color: $transparent;
+      border: 1px solid $white;
+      border-radius: 18px;
+      color: $white;
+      margin-top: 10px;
+      &:hover {
+        background-color: $opacityWhite2;
+      }
+    }
+    &--card:hover .homepage__chart--icon {
+      opacity: 1;
+    }
+    &--card:hover .homepage__chart--img {
+      opacity: 0.3;
+    }
+    &--card:hover {
+      background: $opacityWhite;
+    }
+    &--right {
+      height: 100%;
+      width: 59%;
+      // @include displayFlex(
+      //   $direc: row,
+      //   $wrap: nowrap,
+      //   $justy: center,
+      //   $align: center
+      // );
+      // z-index: 100;
+      &--chart {
+        width: 100%;
+        height: 70%;
+        z-index: 100;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+      }
+    }
+  }
   &__zingchart {
     width: 100%;
     height: auto;
