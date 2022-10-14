@@ -455,6 +455,7 @@ button {
       $justy: flex-start,
       $align: flex-start
     );
+    margin-bottom: 20px;
     &--row {
       width: 100%;
       @include displayGridAutoFit($width: 200px);
@@ -549,10 +550,12 @@ button {
     }
 
     h4 {
+      overflow: hidden;
       margin: 0;
       @include padding(5px 0);
       font-size: 14px;
       color: $white;
+      @include oneLineTextOverflow();
     }
     h4:hover {
       color: $purpose;
@@ -570,6 +573,224 @@ button {
       font-size: 14px;
       color: $textColor;
       @include twoLineTextOverflow();
+    }
+  }
+  &__chart {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #2b4577;
+    @include padding(10px 20px);
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    gap: 10px;
+    &--hashtag {
+      height: 19%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      a {
+        @include h4TextStyles($fontSize: 28px, $fontWeight: 700);
+      }
+      a:hover {
+        color: $green;
+      }
+      button.icon {
+        background-color: $transparent;
+        cursor: pointer;
+        border: none;
+        &:hover {
+          background-color: $transparent;
+        }
+      }
+      i {
+        color: $white;
+        font-size: 34px;
+      }
+      i:hover {
+        filter: opacity($primaryOpacity);
+      }
+    }
+    &--content {
+      height: 90%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      @include maxWidth($lg) {
+        @include displayFlex(
+          $direc: column-reverse,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+      }
+
+      gap: 40px;
+    }
+    &--left {
+      width: 41%;
+      @include maxWidth($lg) {
+        width: 100%;
+      }
+    }
+    &--col {
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 10px;
+    }
+    &--card {
+      height: $smallCardHeight;
+      width: 100%;
+      background-color: $opacityWhite2;
+      z-index: $baseZIndex;
+      cursor: pointer;
+      @include padding(10px);
+      border-radius: 5px;
+      h4 {
+        margin: 0;
+        @include oneLineTextOverflow();
+      }
+    }
+    &--card:nth-child(1) > .homepage__chart--cover span.number {
+      -webkit-text-stroke: 2px $blue;
+    }
+    &--card:nth-child(2) > .homepage__chart--cover span.number {
+      -webkit-text-stroke: 2px $green2;
+    }
+    &--card:nth-child(3) > .homepage__chart--cover span.number {
+      -webkit-text-stroke: 2px $orange;
+    }
+    &--cover {
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      span.number {
+        @include h4TextStyles($fontSize: 32px, $fontWeight: 900, $margin: 0px);
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        white-space: nowrap;
+        color: $transparent;
+        opacity: 1;
+        @include padding(0 20px 0 10px);
+      }
+      span.per {
+        @include h4TextStyles($fontSize: 16px, $fontWeight: 700, $margin: 0px);
+        line-height: 1.56;
+      }
+    }
+    &--img {
+      height: 100%;
+      width: 70px;
+      position: relative;
+      background-size: cover;
+      margin-right: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    &--title {
+      height: 100%;
+      width: 75%;
+      overflow: hidden;
+      margin-right: 10px;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: center,
+        $align: space-between
+      );
+      gap: 5px;
+      a {
+        padding: 0;
+        display: inline;
+        font-size: 14px;
+        color: $textColor;
+      }
+      a:hover {
+        color: $green;
+        z-index: $baseZIndex;
+      }
+      span {
+        font-size: 12px;
+        color: $textColor;
+        @include oneLineTextOverflow();
+
+        z-index: $baseZIndex;
+      }
+    }
+    &--icon {
+      width: 70px;
+      height: 100%;
+      transition: $cardHoverTransition;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      @include padding(0 10px 0 10px);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      z-index: 100;
+    }
+    button {
+      cursor: pointer;
+      background-color: $transparent;
+      border: 1px solid $white;
+      border-radius: 18px;
+      color: $white;
+      margin-top: 10px;
+      &:hover {
+        background-color: $opacityWhite2;
+      }
+    }
+    &--card:hover .homepage__chart--icon {
+      opacity: 1;
+    }
+    &--card:hover .homepage__chart--img {
+      opacity: 0.7;
+    }
+    &--card:hover {
+      background: $opacityWhite;
+    }
+    &--right {
+      width: 59%;
+      @include maxWidth($lg) {
+        width: 100%;
+      }
+      &--chart {
+        z-index: 100;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+      }
     }
   }
   &__zingchart {
@@ -785,19 +1006,11 @@ button {
       height: auto;
 
       @include displayFlex(
-          $direc: row,
-          $wrap: wrap,
-          $justy: center,
-          $align: center
-        )
-        // {
-        //   display: flex;
-        //   flex-direction: $direc;
-        //   justify-content: $justy;
-        //   align-items: $align;
-        //   flex-wrap: $wrap;
-        // }
-;
+        $direc: row,
+        $wrap: wrap,
+        $justy: center,
+        $align: center
+      );
     }
     &--item {
       width: $itemCardWidth;

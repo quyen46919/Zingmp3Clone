@@ -116,6 +116,7 @@
   font-weight: $fontWeight;
   margin: 0;
 }
+
 // MEDIA QUERIES DESKTOP FIRST
 @mixin maxWidth($value) {
   @media screen and (max-width: $value) {

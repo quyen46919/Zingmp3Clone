@@ -5,6 +5,7 @@ $darkBlue: #172c48;
 $brightBlue: #304470;
 $opacityBlack: rgba(0, 0, 0, 0.336);
 $opacityWhite: rgba(255, 255, 255, 0.126);
+$opacityWhite2: rgba(255, 255, 255, 0.05);
 
 // text color
 $titleColor: #fff;
@@ -21,12 +22,17 @@ $yellow: #ffdb00;
 $purpose: #bd4dbd;
 $gray: #ffffff28;
 $transparent: transparent;
+$green: #0daf94;
+$green2: #50e3c2;
+$blue: #4a90e2;
+$orange: #e35050;
 
 //general
 $primaryTransition: 0.5s ease-in-out;
 $secondaryTransition: 0.2s ease-in-out;
 $cardHoverTransition: all 0.3s;
 $primaryOpacity: 0.7;
+$secondaryOpacity: 0.2;
 $imageScale: 1.05;
 $baseZIndex: 3;
 $backdropZIndex: 2;
@@ -38,6 +44,7 @@ $menuLeftWidthRes: 70px;
 $itemCardWidth: 200px;
 $itemZingchartWidth: 100px;
 $itemCardWidth: 120px;
+$smallCardHeight: 80px;
 
 // svgs
 $zingmp3Logo: url(https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg);
