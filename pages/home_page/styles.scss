@@ -226,6 +226,24 @@ button {
         cursor: pointer;
         margin-right: 15px;
         text-align: center;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        a {
+          margin: 0;
+          padding: 0;
+          color: $white;
+          font-size: 13px;
+          @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: center,
+            $align: center
+          );
+        }
       }
     }
     &--all {
