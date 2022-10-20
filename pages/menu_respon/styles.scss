@@ -33,9 +33,10 @@ button {
 
   &__menu {
     a {
+      cursor: pointer;
+      z-index: $baseZIndex;
       &:hover {
         color: $white;
-        position: relative;
       }
       @include maxWidth($lg) {
         font-size: 20px;
@@ -49,13 +50,11 @@ button {
           position: relative;
 
           &:not(:first-of-type)::after {
-            width: 70px;
+            width: $menuLeftWidthRes;
             padding: 3px 5px;
             content: attr(tooltip);
             position: absolute;
-            top: 50%;
-            left: 100%;
-            z-index: 1;
+            @include position($left: 100%, $top: 50%, $zIndex: 100);
             border-radius: 5px;
             color: $tooltipColor;
             background-color: $white;
@@ -68,9 +67,14 @@ button {
       }
     }
     width: $menuLeftWidth;
+    height: 100vh;
     background-color: $secondaryBlue;
     @include stackColumn();
     @include padding(0 10px);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
     @include maxWidth($lg) {
       width: 70px;
       transition: $secondaryTransition;
@@ -79,6 +83,7 @@ button {
     &--logo {
       height: 40px;
       margin: 20px 0 14px 0;
+      z-index: $baseZIndex;
       background: $zingmp3Logo 13% / contain no-repeat;
       @include maxWidth($lg) {
         background: $zingmp3LogoIcon;
@@ -115,7 +120,6 @@ button {
       }
     }
   }
-
   &__content {
     width: calc(100vw - #{$menuLeftWidth});
     background-color: $darkBlue;

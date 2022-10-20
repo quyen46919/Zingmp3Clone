@@ -1,0 +1,1345 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @include customScrollbar($width: 5px);
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  width: 100%;
+  text-decoration: none;
+  color: $linkColor;
+  font-size: 16px;
+  @include padding(10px);
+  @include stackRow(10px);
+}
+
+button {
+  padding: 8px 15px;
+  outline: none;
+  border: none;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  transition: $primaryTransition;
+}
+.album-page {
+  width: calc(100vw - #{$menuLeftWidth});
+  height: auto;
+  min-width: $minWidthPage;
+  background-color: $primaryBlue;
+  color: $white;
+  position: absolute;
+  left: $menuLeftWidth;
+  @include padding(5px 50px 50px 50px);
+  @include maxWidth($lg) {
+    width: calc(100vw - $menuLeftWidthRes);
+    left: $menuLeftWidthRes;
+  }
+  @include displayFlex(
+    $direc: column,
+    $wrap: nowrap,
+    $justy: center,
+    $align: center
+  );
+  gap: 40px;
+  &__content {
+    width: 100%;
+    height: auto;
+    background-color: $primaryBlue;
+    position: relative;
+    overflow: hidden;
+    @include customScrollbar($width: 0px);
+    @include displayFlex(
+      $direc: row,
+      $wrap: nowrap,
+      $justy: space-between,
+      $align: flex-start
+    );
+    @include maxWidth($md) {
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--left {
+      top: 0;
+      left: 0;
+      width: 30%;
+      height: auto;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+      gap: 10px;
+      @include maxWidth($md) {
+        width: 100%;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: flex-start,
+          $align: flex-start
+        );
+        gap: 20px;
+      }
+    }
+    &--cover {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      * {
+        transition: $cardHoverTransition;
+      }
+      @include maxWidth($md) {
+        width: 40%;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+      }
+      &-backdrop {
+        @include backdropStyles(
+          $height: 100%,
+          $width: 100%,
+          $position: absolute,
+          $opacity: 0,
+          $visibility: hidden,
+          $left: 0,
+          $top: 0,
+          $zIndex: 100
+        );
+        transition: $secondaryTransition;
+        visibility: hidden;
+        @include padding(0 10px 0 10px);
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-around,
+          $align: center
+        );
+        button {
+          height: $buttonSize;
+          width: $buttonSize;
+          background-color: $transparent;
+          border-radius: 50%;
+          @include displayFlex();
+          cursor: pointer;
+          border: 1px solid $white;
+        }
+        button:hover {
+          background-color: $opacityWhite;
+        }
+        i {
+          color: $white;
+          font-size: 20px;
+        }
+      }
+      &:hover > &-backdrop {
+        opacity: 1;
+        visibility: initial;
+
+        background-color: $opacityBlack;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    &--img {
+      height: 100%;
+      width: 100%;
+    }
+    &--title {
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 5px;
+      @include maxWidth($md) {
+        @include displayFlex(
+          $direc: column,
+          $wrap: nowrap,
+          $justy: flex-start,
+          $align: flex-start
+        );
+      }
+      span {
+        color: $subTitleColor;
+        @include textStyles($fontSize: 14px, $fontWeight: 400);
+      }
+      h4 {
+        margin: 0;
+        @include h4TextStyles($fontSize: 20px, $fontWeight: 700, $margin: 0px);
+      }
+      a {
+        padding: 0;
+        display: inline;
+        font-size: 14px;
+        color: $textColor;
+      }
+      a:hover {
+        color: $green;
+      }
+    }
+    &--wire {
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      gap: 10px;
+      @include maxWidth($md) {
+        height: 250px;
+        @include displayFlex(
+          $direc: column,
+          $wrap: nowrap,
+          $justy: center,
+          $align: flex-start
+        );
+        gap: 30px;
+      }
+    }
+    &--wire-2 {
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      gap: 10px;
+      @include maxWidth($md) {
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+      }
+    }
+    &--playAll {
+      width: 150px;
+      border-radius: 15px;
+      @include textStyles($fontSize: 14px, $fontWeight: 400);
+      color: $titleColor;
+      background-color: $green;
+      cursor: pointer;
+      i {
+        margin-right: 5px;
+      }
+      &:hover {
+        filter: opacity($primaryOpacity);
+      }
+    }
+    &--icon {
+      background-color: $transparent;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      gap: 10px;
+      button {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: $opacityWhite;
+        color: $white;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        cursor: pointer;
+        &:hover {
+          filter: opacity($primaryOpacity);
+        }
+      }
+    }
+
+    &--right {
+      width: 70%;
+      top: 0;
+      right: 0;
+      @include padding(0 0 0 20px);
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+      @include maxWidth($md) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    &--song {
+      width: 100%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--header {
+      width: 100%;
+      height: 50px;
+      border-bottom: 0.1px solid $darkBlue;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+    }
+    &--name {
+      width: 20%;
+      height: 100%;
+
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      button {
+        height: 30px;
+        width: 30px;
+        background-color: $transparent;
+        border-radius: 5px;
+        @include displayFlex();
+        cursor: pointer;
+        color: $subTitleColor;
+        i {
+          font-size: 13px;
+        }
+      }
+      button:hover {
+        background-color: $opacityWhite;
+      }
+      span {
+        @include textStyles($fontSize: 12px, $fontWeight: 700);
+        color: $subTitleColor;
+      }
+    }
+    &--time {
+      @include textStyles($fontSize: 12px, $fontWeight: 700);
+      color: $subTitleColor;
+    }
+    &--element {
+      width: 100%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--card {
+      width: 100%;
+      height: 65px;
+      border-bottom: 0.1px solid $darkBlue;
+    }
+    &--item {
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+
+      &:hover .album-page__content--item-song--img--cover {
+        opacity: 1;
+        visibility: inherit;
+        z-index: 5;
+      }
+      &:hover .album-page__content--item-timeOut--backdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .album-page__content--item-timeOut > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover .album-page__content--item-number--backdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .album-page__content--item-number > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover {
+        filter: opacity($primaryOpacity);
+        background-color: $opacityWhite;
+      }
+      &--fakeDiv {
+        height: 100%;
+        width: 70%;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: flex-start,
+          $align: center
+        );
+      }
+      &-number {
+        color: $subTitleColor;
+        height: 100%;
+        width: 50px;
+        position: relative;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        &--backdrop {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          right: 25%;
+          height: 100%;
+          width: 100%;
+          @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: flex-end,
+            $align: center
+          );
+          input {
+            height: 15px;
+            width: 15px;
+            background-color: $transparent;
+            color: $transparent;
+            border-radius: 50%;
+            @include displayFlex();
+            cursor: pointer;
+            color: $white;
+          }
+        }
+      }
+      &-song {
+        width: 80%;
+        height: 100%;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: flex-start,
+          $align: center
+        );
+        gap: 10px;
+        &--img {
+          height: 45px;
+          width: 45px;
+          border-radius: 5px;
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
+          &--cover {
+            height: 45px;
+            width: 45px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include displayFlex();
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        &--title {
+          padding-right: 20px;
+          @include displayFlex(
+            $direc: column,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: flex-start
+          );
+          span {
+            font-size: 14px;
+            overflow: hidden;
+            color: $linkColor;
+            @include oneLineTextOverflow();
+          }
+          a {
+            padding: 0;
+            font-size: 12px;
+            color: $subTitleColor;
+            display: inline;
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+      &-timeOut {
+        color: $linkColor;
+        width: 14%;
+        @include textStyles($fontSize: 12px, $fontWeight: 700);
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: flex-end,
+          $align: center
+        );
+        position: relative;
+        &--backdrop {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          height: 65px;
+          width: 100%;
+          @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: flex-end,
+            $align: center
+          );
+          button {
+            height: 35px;
+            width: 35px;
+            background-color: $transparent;
+            border-radius: 50%;
+            @include displayFlex();
+            cursor: pointer;
+            color: $white;
+            i {
+              font-size: 16px;
+            }
+          }
+
+          button:hover {
+            background-color: $opacityWhite;
+          }
+        }
+      }
+    }
+    &--footer {
+      padding-top: 10px;
+      color: $subTitleColor;
+      @include textStyles($fontSize: 13px);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      gap: 10px;
+      i {
+        font-size: 5px;
+      }
+    }
+    &--extend {
+      width: 100%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+      gap: 10px;
+      h4 {
+        padding-top: 50px;
+        @include h4TextStyles($fontSize: 20px, $fontWeight: 900, $margin: 0);
+      }
+      &--card {
+        width: 100%;
+        height: 65px;
+        border-bottom: 0.1px solid $darkBlue;
+      }
+      &--item {
+        height: 100%;
+        width: 100%;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-between,
+          $align: center
+        );
+
+        @include padding(0 13px);
+        &:hover .album-page__content--extend--item-song--img--cover {
+          opacity: 1;
+          visibility: inherit;
+          z-index: 5;
+        }
+        &:hover .album-page__content--extend--item-timeOut--backdrop {
+          opacity: 1;
+          visibility: inherit;
+        }
+        &:hover .album-page__content--extend--item-timeOut > span {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        &:hover {
+          filter: opacity($primaryOpacity);
+          background-color: $opacityWhite;
+        }
+        &--fakeDiv {
+          height: 100%;
+          width: 70%;
+          @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: center
+          );
+          gap: 20px;
+        }
+        &-number {
+          color: $subTitleColor;
+        }
+        &-song {
+          width: 80%;
+          height: 100%;
+          @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: center
+          );
+          gap: 10px;
+          &--img {
+            height: 45px;
+            width: 45px;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            &--cover {
+              height: 45px;
+              width: 45px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              @include displayFlex();
+              opacity: 0;
+              visibility: hidden;
+            }
+          }
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          &--title {
+            padding-right: 20px;
+            @include displayFlex(
+              $direc: column,
+              $wrap: nowrap,
+              $justy: flex-start,
+              $align: flex-start
+            );
+            span {
+              font-size: 14px;
+              overflow: hidden;
+              color: $linkColor;
+              @include oneLineTextOverflow();
+            }
+            a {
+              padding: 0;
+              font-size: 12px;
+              color: $subTitleColor;
+              display: inline;
+              &:hover {
+                color: $green;
+              }
+            }
+          }
+        }
+        &-timeOut {
+          color: $linkColor;
+          width: 14%;
+          @include textStyles($fontSize: 12px, $fontWeight: 700);
+          @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: flex-end,
+            $align: center
+          );
+          position: relative;
+          &--backdrop {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            height: 65px;
+            width: 100%;
+            @include displayFlex(
+              $direc: row,
+              $wrap: nowrap,
+              $justy: flex-end,
+              $align: center
+            );
+            button {
+              height: calc($buttonSize - 15px);
+              width: calc($buttonSize - 15px);
+              background-color: $transparent;
+              border-radius: 50%;
+              @include displayFlex();
+              cursor: pointer;
+              color: $white;
+              i {
+                font-size: 16px;
+              }
+            }
+
+            button:hover {
+              background-color: $opacityWhite;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__singer1 {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    margin-bottom: 20px;
+    &--row {
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 20px !important;
+    }
+    &--card {
+      width: 220px;
+      z-index: $baseZIndex;
+      overflow: hidden;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--card:nth-child(1) h4 {
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+    }
+    &--card:nth-child(1) button {
+      border: 1px solid $white;
+    }
+    &--card:nth-child(1) &--cover {
+      border-radius: 50%;
+    }
+    &--card:nth-child(1) img {
+      border-radius: 50%;
+    }
+    &--cover {
+      height: 75%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      * {
+        transition: $cardHoverTransition;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+      }
+      &-backdrop {
+        @include backdropStyles(
+          $height: 100%,
+          $width: 100%,
+          $position: absolute,
+          $opacity: 0,
+          $visibility: hidden,
+          $left: 0,
+          $top: 0,
+          $zIndex: 100
+        );
+        transition: $secondaryTransition;
+        visibility: hidden;
+        @include padding(0 10px 0 10px);
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-around,
+          $align: center
+        );
+        button {
+          height: 40px;
+          width: 40px;
+          background-color: $transparent;
+          border-radius: 50%;
+          @include displayFlex();
+          cursor: pointer;
+        }
+        button:nth-child(2) {
+          height: 60px;
+          width: 60px;
+          & > i {
+            font-size: 40px;
+          }
+        }
+        button:hover {
+          background-color: $opacityWhite;
+        }
+        button:nth-child(2):hover {
+          background-color: $transparent;
+        }
+        i {
+          color: $white;
+          font-size: 17px;
+        }
+      }
+      &:hover > &-backdrop {
+        opacity: 1;
+        visibility: initial;
+
+        background-color: $opacityBlack;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    &--img {
+      height: 100%;
+      width: 100%;
+    }
+
+    h4 {
+      overflow: hidden;
+      margin: 0;
+      @include padding(5px 0);
+      font-size: 14px;
+      color: $white;
+      @include oneLineTextOverflow();
+    }
+    h4:hover {
+      color: $purpose;
+    }
+    a {
+      padding: 0;
+      display: inline;
+      font-size: 14px;
+      color: $textColor;
+    }
+    a:hover {
+      color: $green;
+    }
+    span {
+      font-size: 14px;
+      color: $textColor;
+      @include twoLineTextOverflow();
+    }
+  }
+  &__singer2 {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    &--row {
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 20px !important;
+    }
+    &--card {
+      width: 220px;
+      z-index: $baseZIndex;
+      overflow: hidden;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--card:nth-child(1) h4 {
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+    }
+    &--card:nth-child(1) button {
+      border: 1px solid $white;
+    }
+    &--card:nth-child(1) &--cover {
+      border-radius: 50%;
+    }
+    &--card:nth-child(1) img {
+      border-radius: 50%;
+    }
+    &--cover {
+      height: 75%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      * {
+        transition: $cardHoverTransition;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+      }
+      &-backdrop {
+        @include backdropStyles(
+          $height: 100%,
+          $width: 100%,
+          $position: absolute,
+          $opacity: 0,
+          $visibility: hidden,
+          $left: 0,
+          $top: 0,
+          $zIndex: 100
+        );
+        transition: $secondaryTransition;
+        visibility: hidden;
+        @include padding(0 10px 0 10px);
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-around,
+          $align: center
+        );
+        button {
+          height: calc($buttonSize - 10px);
+          width: calc($buttonSize - 10px);
+          background-color: $transparent;
+          border-radius: 50%;
+          @include displayFlex();
+          cursor: pointer;
+        }
+        button:nth-child(2) {
+          height: calc($buttonSize + 10px);
+          width: calc($buttonSize + 10px);
+          & > i {
+            font-size: 40px;
+          }
+        }
+        button:hover {
+          background-color: $opacityWhite;
+        }
+        button:nth-child(2):hover {
+          background-color: $transparent;
+        }
+        i {
+          color: $white;
+          font-size: 17px;
+        }
+      }
+      &:hover > &-backdrop {
+        opacity: 1;
+        visibility: initial;
+
+        background-color: $opacityBlack;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    &--img {
+      height: 100%;
+      width: 100%;
+    }
+
+    h4 {
+      overflow: hidden;
+      margin: 0;
+      @include padding(5px 0);
+      font-size: 14px;
+      color: $white;
+      @include oneLineTextOverflow();
+    }
+    h4:hover {
+      color: $purpose;
+    }
+    a {
+      padding: 0;
+      display: inline;
+      font-size: 14px;
+      color: $textColor;
+    }
+    a:hover {
+      color: $green;
+    }
+    span {
+      font-size: 14px;
+      color: $textColor;
+      @include twoLineTextOverflow();
+    }
+  }
+  &__new {
+    padding-bottom: 60px;
+    &--cover {
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+    }
+    &--all {
+      width: 100px;
+      cursor: pointer;
+      i {
+        padding-left: 10px;
+      }
+    }
+    &--all:hover {
+      color: $green;
+      transition: $secondaryTransition;
+    }
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    margin-bottom: 20px;
+    &--row {
+      width: 100%;
+      @include displayGridAutoFit($width: 220px);
+      gap: 20px !important;
+    }
+    &--card {
+      width: 100%;
+      z-index: $baseZIndex;
+      overflow: hidden;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--cover {
+      height: 75%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      * {
+        transition: $cardHoverTransition;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+      }
+      &-backdrop {
+        @include backdropStyles(
+          $height: 100%,
+          $width: 100%,
+          $position: absolute,
+          $opacity: 0,
+          $visibility: hidden,
+          $left: 0,
+          $top: 0,
+          $zIndex: 100
+        );
+        transition: $secondaryTransition;
+        visibility: hidden;
+        @include padding(0 10px 0 10px);
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-around,
+          $align: center
+        );
+        button {
+          height: calc($buttonSize - 10px);
+          width: calc($buttonSize - 10px);
+          background-color: $transparent;
+          border-radius: 50%;
+          @include displayFlex();
+          cursor: pointer;
+        }
+        button:nth-child(2) {
+          height: calc($buttonSize + 10px);
+          width: calc($buttonSize + 10px);
+          & > i {
+            font-size: 40px;
+          }
+        }
+        button:hover {
+          background-color: $opacityWhite;
+        }
+        button:nth-child(2):hover {
+          background-color: $transparent;
+        }
+        i {
+          color: $white;
+          font-size: 17px;
+        }
+      }
+      &:hover > &-backdrop {
+        opacity: 1;
+        visibility: initial;
+
+        background-color: $opacityBlack;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    &--img {
+      height: 100%;
+      width: 100%;
+    }
+
+    h4 {
+      overflow: hidden;
+      margin: 0;
+      @include padding(5px 0);
+      font-size: 14px;
+      color: $white;
+      @include oneLineTextOverflow();
+    }
+    h4:hover {
+      color: $purpose;
+    }
+    a {
+      padding: 0;
+      display: inline;
+      font-size: 14px;
+      color: $textColor;
+    }
+    a:hover {
+      color: $green;
+    }
+    span {
+      font-size: 14px;
+      color: $textColor;
+      @include twoLineTextOverflow();
+    }
+  }
+  &__playSong {
+    min-width: $md;
+    position: fixed;
+    height: 90px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: $darkBlue2;
+    border-top: 0.5px solid $brightBlue;
+    cursor: pointer;
+    z-index: 1000;
+    @include displayFlex(
+      $direc: row,
+      $wrap: nowrap,
+      $justy: space-between,
+      $align: center
+    );
+  }
+  &__left {
+    height: 100%;
+    width: 30%;
+    @include displayFlex(
+      $direc: row,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: center
+    );
+    gap: 10px;
+    @include padding(0 0 0 20px);
+    &--img {
+      height: 65px;
+      width: 65px;
+      border-radius: 5px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &--title {
+      padding-right: 20px;
+      span {
+        font-size: 14px;
+        overflow: hidden;
+        color: $linkColor;
+        @include oneLineTextOverflow();
+      }
+      a {
+        padding: 0;
+        font-size: 12px;
+        color: $subTitleColor;
+        &:hover {
+          color: $green;
+        }
+      }
+      @include maxWidth($md) {
+        display: none;
+      }
+    }
+    button {
+      height: calc($buttonSize - 18px);
+      width: calc($buttonSize - 18px);
+      background-color: $transparent;
+      border-radius: 50%;
+      @include displayFlex();
+      cursor: pointer;
+      color: $white;
+      i {
+        font-size: 16px;
+      }
+    }
+
+    button:hover {
+      background-color: $opacityWhite;
+    }
+  }
+  &__center {
+    height: 100%;
+    width: 40%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: center,
+      $align: center
+    );
+    &--control {
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      gap: 15px;
+      button {
+        height: calc($buttonSize - 15px);
+        width: calc($buttonSize - 15px);
+        background-color: $transparent;
+        border-radius: 50%;
+        @include displayFlex();
+        cursor: pointer;
+        color: $white;
+        i {
+          font-size: 16px;
+        }
+      }
+      button:nth-child(3) {
+        border: 1px solid $white;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        &:hover {
+          color: $green;
+          border: 1px solid $green;
+          background-color: $transparent;
+        }
+      }
+      button:hover {
+        background-color: $opacityWhite;
+      }
+    }
+    &--play {
+      width: 85%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      color: $subTitleColor;
+      gap: 15px;
+    }
+    &--line {
+      height: 10px;
+      width: 100%;
+      border-bottom: 2px solid $subTitleColor;
+      margin-bottom: 10px;
+    }
+  }
+  &__right {
+    height: 100%;
+    width: 30%;
+    @include displayFlex(
+      $direc: row,
+      $wrap: nowrap,
+      $justy: flex-end,
+      $align: center
+    );
+    margin-right: 30px;
+    gap: 5px;
+    button {
+      height: calc($buttonSize - 15px);
+      width: calc($buttonSize - 15px);
+      background-color: $transparent;
+      border-radius: 50%;
+      @include displayFlex();
+      cursor: pointer;
+      color: $white;
+      i {
+        font-size: 16px;
+      }
+    }
+    button:hover {
+      background-color: $opacityWhite;
+    }
+    &--line {
+      height: 10px;
+      width: 80px;
+      border-bottom: 2px solid $subTitleColor;
+      margin-bottom: 10px;
+    }
+  }
+}
