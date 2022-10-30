@@ -1,0 +1,394 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  height: 0px;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgb(214, 214, 214);
+  border-radius: 5px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  width: 100%;
+  text-decoration: none;
+  color: #dadada;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  outline: none;
+  border: none;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  transition: 0.5s ease-in-out;
+}
+
+.profile-page {
+  width: calc(100vw - 250px);
+  height: auto;
+  min-width: 800px;
+  background-color: #101f3f;
+  color: #fff;
+  position: absolute;
+  left: 250px;
+  box-sizing: border-box;
+  padding: 5px 50px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 40px;
+}
+@media screen and (max-width: 1200px) {
+  .profile-page {
+    width: calc(100vw - 70px);
+    left: 70px;
+  }
+}
+.profile-page__lib {
+  width: 100%;
+  height: auto;
+  background-color: #101f3f;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.profile-page__lib--title {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+.profile-page__lib--title h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0px;
+}
+.profile-page__lib--title button {
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #4a90e2;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+.profile-page__lib--title button:hover {
+  filter: opacity(0.7);
+}
+.profile-page__lib--row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px !important;
+}
+.profile-page__lib--card {
+  width: 180px;
+  z-index: 3;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.profile-page__lib--card:nth-child(5) .profile-page__lib--cover {
+  height: 178px;
+  width: 178px;
+  border: 0.1px solid #8c99ab;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.profile-page__lib--card:nth-child(5) .profile-page__lib--cover i {
+  font-size: 30px;
+}
+.profile-page__lib--card:nth-child(5) .profile-page__lib--cover:hover i {
+  color: #bd4dbd;
+}
+.profile-page__lib--card:nth-child(5):hover i, .profile-page__lib--card:nth-child(5):hover h4 {
+  color: #bd4dbd;
+}
+.profile-page__lib--card h4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.profile-page__lib--cover {
+  height: 75%;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+}
+.profile-page__lib--cover * {
+  transition: all 0.3s;
+}
+.profile-page__lib--cover button {
+  height: 40px;
+  width: 40px;
+  color: #000000;
+  font-size: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+.profile-page__lib--cover button:hover {
+  filter: opacity(0.7);
+}
+.profile-page__lib--img {
+  height: 180px;
+  width: 180px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.profile-page__lib--img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+.profile-page__lib--img:hover img {
+  transform: scale(1.1);
+}
+.profile-page__lib h4 {
+  overflow: hidden;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 5px 0;
+  font-size: 14px;
+  color: #fff;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.profile-page__lib h4:hover {
+  color: #bd4dbd;
+}
+.profile-page__lib a {
+  padding: 0;
+  display: inline;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5019607843);
+}
+.profile-page__lib a:hover {
+  color: #0daf94;
+}
+.profile-page__playlist {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.profile-page__playlist--title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.profile-page__playlist--title button {
+  height: 30px;
+  width: 30px;
+  background-color: #2b3d55;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.profile-page__playlist--title button:hover {
+  filter: opacity(0.7);
+}
+.profile-page__playlist--left {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.profile-page__playlist--all {
+  width: 100px;
+  cursor: pointer;
+}
+.profile-page__playlist--all i {
+  padding-left: 10px;
+}
+.profile-page__playlist--all:hover {
+  color: #bd4dbd;
+}
+.profile-page__playlist--row {
+  height: 95%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px !important;
+}
+.profile-page__playlist--card {
+  width: 200px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.profile-page__playlist--cover {
+  height: 75%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.profile-page__playlist--cover * {
+  transition: all 0.3s;
+}
+.profile-page__playlist--cover img {
+  height: 60%;
+  width: 100%;
+  border-radius: 5px;
+}
+.profile-page__playlist--cover-backdrop {
+  z-index: 100;
+  bottom: unset;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  right: unset;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+  padding: 0 10px 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.profile-page__playlist--cover-backdrop button {
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+.profile-page__playlist--cover-backdrop button:nth-child(2) {
+  height: 60px;
+  width: 60px;
+}
+.profile-page__playlist--cover-backdrop button:nth-child(2) > i {
+  font-size: 40px;
+}
+.profile-page__playlist--cover-backdrop button:hover {
+  background-color: rgba(255, 255, 255, 0.126);
+}
+.profile-page__playlist--cover-backdrop button:nth-child(2):hover {
+  background-color: transparent;
+}
+.profile-page__playlist--cover-backdrop i {
+  color: #fff;
+  font-size: 17px;
+}
+.profile-page__playlist--cover:hover > .profile-page__playlist--cover-backdrop {
+  opacity: 1;
+  visibility: initial;
+  background-color: rgba(0, 0, 0, 0.336);
+}
+.profile-page__playlist--cover:hover img {
+  transform: scale(1.1);
+}
+.profile-page__playlist--img {
+  height: 100%;
+  width: 100%;
+}
+.profile-page__playlist h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.profile-page__playlist h4:hover {
+  color: #bd4dbd;
+}
+.profile-page__playlist span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5019607843);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*# sourceMappingURL=styles.css.map */

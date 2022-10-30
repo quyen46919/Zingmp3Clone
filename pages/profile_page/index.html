@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../../scss/header/styles.css" />
+    <link rel="stylesheet" href="../menu_respon/styles.css" />
+    <title>album page</title>
+  </head>
+
+  <body>
+    <div class="home">
+      <div class="home__menu">
+        <a href="/index.html" class="home__menu--logo"></a>
+        <a href="../profile_page/index.html" tooltip="Cá nhân">
+          <i class="fa-solid fa-list-ol"></i>
+          <span>Cá nhân</span>
+        </a>
+        <a href="#" tooltip="Khám phá">
+          <i class="fa-solid fa-music"></i>
+          <span>Khám phá</span>
+        </a>
+        <a href="#" tooltip="#zingchart">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>#zingchart</span>
+        </a>
+        <a href="#" tooltip="Theo dõi">
+          <i class="fa-solid fa-folder-plus"></i>
+          <span>Theo dõi</span>
+        </a>
+        <div class="home__menu--divider"></div>
+        <a href="#" tooltip="Nhạc mới">
+          <i class="fa-solid fa-music"></i>
+          <span>Nhạc mới</span>
+        </a>
+        <a href="#" tooltip="Thể loại">
+          <i class="fa-solid fa-table-list"></i>
+          <span>Thể loại</span>
+        </a>
+        <a href="/pages/top100/index.html" tooltip="Top 100">
+          <i class="fa-solid fa-ranking-star"></i>
+          <span>Top 100</span>
+        </a>
+        <a href="#" tooltip="MV">
+          <i class="fa-solid fa-play"></i>
+          <span>MV</span>
+        </a>
+        <div class="home__menu--vip">
+          <div>Nghe nhạc không quảng cáo cùng kho nhạc VIP</div>
+          <button>NÂNG CẤP VIP</button>
+        </div>
+      </div>
+      <!-- end left menu -->
+      <div class="profile-page">
+        <div class="header">
+          <div class="header--left">
+            <i class="fa fa-arrow-left"></i>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <div class="header--search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input
+                type="text"
+                spellcheck="false"
+                placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát..."
+              />
+            </div>
+          </div>
+          <div class="header--right">
+            <button>
+              <i class="fa fa-adjust" aria-hidden="true"></i>
+            </button>
+            <button>
+              <i class="fa fa-diamond" aria-hidden="true"></i>
+            </button>
+            <button>
+              <i class="fa fa-upload" aria-hidden="true"></i></button
+            ><button>
+              <i class="fa fa-cog" aria-hidden="true"></i>
+            </button>
+            <div
+              class="header--avatar"
+              id="header--avatar"
+              onclick="toggleMenu()"
+            ></div>
+
+            <div class="header--popup" id="header--popup">
+              <div class="header--popup--vip">
+                <div class="header--popup--upgrade">
+                  <i class="fa-regular fa-gem"></i>
+                  <p>Nâng cấp VIP</p>
+                </div>
+                <div class="header--popup--buy">
+                  <i class="fa-regular fa-credit-card"></i>
+                  <p>Mua code VIP</p>
+                </div>
+              </div>
+              <div class="header--popup--logout">
+                <i class="fa-regular fa-user"></i>
+                <p>Đăng xuất</p>
+              </div>
+            </div>
+            <div
+              onclick="toggleMenu()"
+              class="header--backdrop"
+              id="header--backdrop"
+            ></div>
+          </div>
+        </div>
+        <div class="profile-page__lib">
+          <div class="profile-page__lib--title">
+            <h1>Thư viện</h1>
+            <button><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="profile-page__lib--row">
+            <div class="profile-page__lib--card">
+              <div class="profile-page__lib--cover">
+                <div class="profile-page__lib--img">
+                  <img
+                    src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/c/0/f/1/c0f16579f4583961bc06e1ee1a565305.jpg"
+                    alt=""
+                  />
+                </div>
+                <button><i class="fas fa-random"></i></button>
+              </div>
+              <a href="#">
+                <h4>Evy</h4>
+              </a>
+            </div>
+            <div class="profile-page__lib--card">
+              <div class="profile-page__lib--cover">
+                <div class="profile-page__lib--img">
+                  <img
+                    src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/d/5/d579b585d3c82d1cbe2c16bd257b56cb_1511498028.jpg"
+                    alt=""
+                  />
+                </div>
+                <button><i class="fas fa-random"></i></button>
+              </div>
+              <a href="#">
+                <h4>Hoài Lâm</h4>
+              </a>
+            </div>
+            <div class="profile-page__lib--card">
+              <div class="profile-page__lib--cover">
+                <div class="profile-page__lib--img">
+                  <img
+                    src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/5/5/7/8/557866cd0f0c868cb69f4a98a056e435.jpg"
+                    alt=""
+                  />
+                </div>
+                <button><i class="fas fa-random"></i></button>
+              </div>
+              <a href="#">
+                <h4>Vương Tuấn Khải</h4>
+              </a>
+            </div>
+            <div class="profile-page__lib--card">
+              <div class="profile-page__lib--cover">
+                <div class="profile-page__lib--img">
+                  <img
+                    src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/7/7/8/d/778d152062edfbe0e4c4abf151858bf0.jpg"
+                    alt=""
+                  />
+                </div>
+                <button><i class="fas fa-random"></i></button>
+              </div>
+              <a href="#">
+                <h4>Chạm</h4>
+              </a>
+            </div>
+            <div class="profile-page__lib--card">
+              <div class="profile-page__lib--cover">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+              <a href="#">
+                <h4>Xem Thêm</h4>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="profile-page__playlist">
+          <div class="profile-page__playlist--title">
+            <div class="profile-page__playlist--left">
+              <h2>PLAYLIST</h2>
+              <button>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+
+            <div class="profile-page__playlist--all">
+              Tất cả
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="profile-page__playlist--row">
+            <div class="profile-page__playlist--card">
+              <div class="profile-page__playlist--cover">
+                <div class="profile-page__playlist--img">
+                  <img
+                    src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/0/5/c/f05c599832086a0a60f1105db362619f.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="profile-page__playlist--cover-backdrop">
+                  <button><i class="fa-regular fa-heart"></i></button>
+                  <button><i class="fa-regular fa-circle-play"></i></button>
+                  <button>
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <h4>Nhạc Trẻ Gây Nghiện</h4>
+              <span>Giai điệu nghe một lần là không thể quên của V-Pop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <script src="../../scss/header/accountPopUp.js"></script>
+  </body>
+</html>

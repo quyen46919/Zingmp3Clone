@@ -1,0 +1,385 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @include customScrollbar($width: 5px);
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  width: 100%;
+  text-decoration: none;
+  color: $linkColor;
+  font-size: 16px;
+  @include padding(10px);
+  @include stackRow(10px);
+}
+
+button {
+  padding: 8px 15px;
+  outline: none;
+  border: none;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  transition: $primaryTransition;
+}
+.profile-page {
+  width: calc(100vw - #{$menuLeftWidth});
+  height: auto;
+  min-width: $minWidthPage;
+  background-color: $primaryBlue;
+  color: $white;
+  position: absolute;
+  left: $menuLeftWidth;
+  @include padding(5px 50px 50px 50px);
+  @include maxWidth($lg) {
+    width: calc(100vw - $menuLeftWidthRes);
+    left: $menuLeftWidthRes;
+  }
+  @include displayFlex(
+    $direc: column,
+    $wrap: nowrap,
+    $justy: center,
+    $align: center
+  );
+  gap: 40px;
+  &__lib {
+    width: 100%;
+    height: auto;
+    background-color: $primaryBlue;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    &--title {
+      width: 100%;
+      height: auto;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 20px;
+      h1 {
+        @include h1TextStyles();
+      }
+      button {
+        height: 40px;
+        width: 40px;
+        color: $white;
+        font-size: 20px;
+        background-color: $blue;
+        border-radius: 50%;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        cursor: pointer;
+        &:hover {
+          filter: opacity($primaryOpacity);
+        }
+      }
+    }
+    &--row {
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 20px !important;
+    }
+    &--card {
+      width: 180px;
+      z-index: $baseZIndex;
+      overflow: hidden;
+      position: relative;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+      gap: 10px;
+    }
+    &--card:nth-child(5) .profile-page__lib--cover {
+      height: 178px;
+      width: 178px;
+      border: 0.1px solid $subTitleColor;
+      background-color: $transparent;
+      //   position: relative;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      i {
+        font-size: 30px;
+      }
+      &:hover i {
+        color: $purpose;
+      }
+    }
+    &--card:nth-child(5):hover i,
+    &--card:nth-child(5):hover h4 {
+      color: $purpose;
+    }
+
+    &--card h4 {
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+    }
+
+    &--cover {
+      height: 75%;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      * {
+        transition: $cardHoverTransition;
+      }
+      border-radius: 50%;
+
+      button {
+        height: 40px;
+        width: 40px;
+        color: $tooltipColor;
+        font-size: 20px;
+        background-color: $white;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 100;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        cursor: pointer;
+        &:hover {
+          filter: opacity($primaryOpacity);
+        }
+      }
+    }
+
+    &--img {
+      height: 180px;
+      width: 180px;
+      overflow: hidden;
+
+      border-radius: 50%;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    h4 {
+      overflow: hidden;
+      margin: 0;
+      @include padding(5px 0);
+      font-size: 14px;
+      color: $white;
+      @include oneLineTextOverflow();
+    }
+    h4:hover {
+      color: $purpose;
+    }
+    a {
+      padding: 0;
+      display: inline;
+      font-size: 14px;
+      color: $textColor;
+    }
+    a:hover {
+      color: $green;
+    }
+  }
+  &__playlist {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    &--title {
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+      button {
+        height: 30px;
+        width: 30px;
+        background-color: #2b3d55;
+        color: $white;
+        border-radius: 50%;
+        cursor: pointer;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        &:hover {
+          filter: opacity($primaryOpacity);
+        }
+      }
+    }
+    &--left {
+      width: 20%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 10px;
+    }
+    &--all {
+      width: 100px;
+      cursor: pointer;
+      i {
+        padding-left: 10px;
+      }
+    }
+    &--all:hover {
+      color: $purpose;
+    }
+    &--row {
+      height: 95%;
+      width: 100%;
+      @include displayGridAutoFit($width: 200px);
+      gap: 20px !important;
+    }
+    &--card {
+      width: 200px;
+
+      z-index: $baseZIndex;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--cover {
+      height: 75%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      * {
+        transition: $cardHoverTransition;
+      }
+      img {
+        height: 60%;
+        width: 100%;
+        border-radius: 5px;
+      }
+      &-backdrop {
+        @include backdropStyles(
+          $left: 0,
+          $top: 0,
+          $zIndex: 100,
+          $height: 100%,
+          $width: 100%,
+          $position: absolute,
+          $opacity: 0,
+          $visibility: hidden
+        );
+        transition: $secondaryTransition;
+        @include padding(0 10px 0 10px);
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-around,
+          $align: center
+        );
+        button {
+          height: 40px;
+          width: 40px;
+          background-color: $transparent;
+          border-radius: 50%;
+          @include displayFlex();
+          cursor: pointer;
+        }
+        button:nth-child(2) {
+          height: 60px;
+          width: 60px;
+          & > i {
+            font-size: 40px;
+          }
+        }
+        button:hover {
+          background-color: $opacityWhite;
+        }
+        button:nth-child(2):hover {
+          background-color: $transparent;
+        }
+        i {
+          color: $white;
+          font-size: 17px;
+        }
+      }
+      &:hover > &-backdrop {
+        opacity: 1;
+        visibility: initial;
+
+        background-color: $opacityBlack;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    &--img {
+      height: 100%;
+      width: 100%;
+    }
+    h4 {
+      @include h4TextStyles($fontSize: 14px);
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    h4:hover {
+      color: $purpose;
+    }
+    span {
+      font-size: 14px;
+      color: $textColor;
+      @include twoLineTextOverflow();
+    }
+  }
+}
