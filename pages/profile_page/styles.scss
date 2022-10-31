@@ -98,14 +98,14 @@ button {
       width: 100%;
       @include displayFlex(
         $direc: row,
-        $wrap: nowrap,
+        $wrap: wrap,
         $justy: flex-start,
         $align: center
       );
+      transition: $primaryTransition;
       gap: 20px !important;
     }
     &--card {
-      width: 180px;
       z-index: $baseZIndex;
       overflow: hidden;
       position: relative;
@@ -219,7 +219,7 @@ button {
       color: $textColor;
     }
     a:hover {
-      color: $green;
+      color: $purpose;
     }
   }
   &__playlist {
@@ -380,6 +380,310 @@ button {
       font-size: 14px;
       color: $textColor;
       @include twoLineTextOverflow();
+    }
+  }
+  &__favoriteSong {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    gap: 10px;
+    &--header {
+      width: 100%;
+      height: 40px;
+      // background-color: rgb(139, 53, 112);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 40px;
+      border-bottom: 1px solid $gray;
+      button {
+        height: 100%;
+        width: auto;
+        background-color: $transparent;
+        color: $linkColor;
+        padding: 0;
+        @include h4TextStyles($fontWeight: 400);
+        cursor: pointer;
+      }
+      button:nth-child(1) {
+        border-bottom: 1px solid $blue;
+      }
+      button:hover {
+        color: $titleColor;
+      }
+    }
+    &--options {
+      width: 100%;
+      height: 50px;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 20px;
+      button {
+        background-color: $transparent;
+        color: $titleColor;
+        border: 1px solid $white;
+        border-radius: 20px;
+        @include padding(7px 18px);
+        @include textStyles($fontSize: 12px, $fontWeight: 400);
+        cursor: pointer;
+      }
+      button.active {
+        background-color: $blue;
+        border: none;
+      }
+      button.no-active:hover {
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+    &--table {
+      width: 100%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--colName {
+      width: 100%;
+      height: 50px;
+      color: $linkColor;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      @include h4TextStyles($fontSize: 12px);
+      h4:nth-child(1) {
+        width: 50%;
+        @include padding(0 0 0 50px);
+      }
+      &-cover {
+        padding: 0;
+        width: 50%;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-between,
+          $align: center
+        );
+        h4 {
+          padding: 0 !important;
+        }
+      }
+    }
+    &--item {
+      height: 100%;
+      width: 100%;
+
+      @include padding(10px 0);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+
+      &:hover .profile-page__favoriteSong--cover {
+        opacity: 1;
+        visibility: inherit;
+        z-index: 5;
+      }
+      &:hover .profile-page__favoriteSong--backdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .profile-page__favoriteSong--timeOut > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover .profile-page__favoriteSong--timeOutBackdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .profile-page__favoriteSong--number > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover {
+        filter: opacity($primaryOpacity);
+        background-color: $opacityWhite;
+      }
+    }
+    &--fakeDiv {
+      height: 100%;
+      width: 50%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+    }
+    &--album {
+      width: 35%;
+      a {
+        width: auto;
+        padding: 0;
+        @include textStyles($fontSize: 12px);
+      }
+      a:hover {
+        color: $purpose;
+      }
+    }
+    &--number {
+      color: $subTitleColor;
+      height: 100%;
+      width: 50px;
+      position: relative;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+    }
+    &--backdrop {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      right: 25%;
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      input {
+        height: 15px;
+        width: 15px;
+        background-color: $transparent;
+        color: $transparent;
+        border-radius: 50%;
+        @include displayFlex();
+        cursor: pointer;
+        color: $white;
+      }
+    }
+    &--song {
+      width: 80%;
+      height: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 10px;
+    }
+    &--img {
+      height: 45px;
+      width: 45px;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &--cover {
+      height: 45px;
+      width: 45px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include displayFlex();
+      opacity: 0;
+      visibility: hidden;
+    }
+    &--title {
+      padding-right: 20px;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+      span {
+        font-size: 14px;
+        overflow: hidden;
+        color: $linkColor;
+        @include oneLineTextOverflow();
+      }
+      a {
+        padding: 0;
+        font-size: 12px;
+        color: $subTitleColor;
+        display: inline;
+        &:hover {
+          color: $purpose;
+        }
+      }
+    }
+    &--timeOut {
+      color: $linkColor;
+      width: 14%;
+      @include textStyles($fontSize: 12px, $fontWeight: 700);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      gap: 10px;
+      position: relative;
+      button {
+        background-color: $transparent;
+        color: $white;
+        font-size: 16px;
+      }
+    }
+    &--timeOutBackdrop {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      height: 65px;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      gap: 10px;
+      button {
+        height: 35px;
+        width: 35px;
+        background-color: $transparent;
+        border-radius: 50%;
+        @include displayFlex();
+        cursor: pointer;
+        color: $white;
+        i {
+          font-size: 16px;
+        }
+      }
+
+      button:hover {
+        background-color: $opacityWhite;
+      }
     }
   }
 }
