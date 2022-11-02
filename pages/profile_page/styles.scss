@@ -263,7 +263,7 @@ button {
       pointer-events: all;
       opacity: 1;
     }
-    &--addPlaylist {
+    &--add-playlist {
       @include displayFlex(
         $direc: column,
         $wrap: nowrap,
@@ -291,7 +291,7 @@ button {
     input[type="text"] {
       color: $white;
     }
-    &--popupTitle {
+    &--popup-title {
       width: 100%;
       @include displayFlex(
         $direc: row,
@@ -471,7 +471,7 @@ button {
       @include twoLineTextOverflow();
     }
   }
-  &__favoriteSong {
+  &__favorite-Song {
     width: 100%;
     @include displayFlex(
       $direc: column,
@@ -624,24 +624,24 @@ button {
         $align: center
       );
 
-      &:hover .profile-page__favoriteSong--cover {
+      &:hover .profile-page__favorite-Song--cover {
         opacity: 1;
         visibility: inherit;
         z-index: 5;
       }
-      &:hover .profile-page__favoriteSong--backdrop {
+      &:hover .profile-page__favorite-Song--backdrop {
         opacity: 1;
         visibility: inherit;
       }
-      &:hover .profile-page__favoriteSong--timeOut > span {
+      &:hover .profile-page__favorite-Song--timeOut > span {
         opacity: 0;
         visibility: hidden;
       }
-      &:hover .profile-page__favoriteSong--timeOutBackdrop {
+      &:hover .profile-page__favorite-Song--timeOutBackdrop {
         opacity: 1;
         visibility: inherit;
       }
-      &:hover .profile-page__favoriteSong--number > span {
+      &:hover .profile-page__favorite-Song--number > span {
         opacity: 0;
         visibility: hidden;
       }
@@ -827,11 +827,11 @@ div#tabs {
   background: transparent;
   border: none;
 }
-.ul-li-buttonTabs {
+.button-tabs > li {
   border: none !important;
   color: white !important;
 }
-.ul-li-buttonTabs a {
+.button-tabs > li a {
   color: white !important;
 }
 .ui-tabs .ui-tabs-nav {
@@ -840,22 +840,25 @@ div#tabs {
   padding: 0 !important;
   margin-bottom: 20px !important;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+.button-tabs > li.ui-tabs-active a {
   border-bottom: 3px solid $green3 !important;
 }
+
 li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
-  // padding: 5px;
   background: transparent;
-  border: 1px $white solid;
   border-radius: 30px;
 }
 li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab a {
   color: $linkColor;
   margin: 0;
   padding: 5px 10px;
-  // font-size: 12px;
 }
-
+.button-tabsChild > li.ui-tabs-active a {
+  border-bottom: 1px solid $blue !important;
+  border: none;
+  border-radius: 20px;
+  color: $blue !important;
+}
 .switch {
   position: relative;
   display: inline-block;
