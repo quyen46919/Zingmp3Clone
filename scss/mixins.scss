@@ -93,6 +93,22 @@
   right: $right;
 }
 
+@mixin popupStyles(
+  $left: unset,
+  $bottom: unset,
+  $top: unset,
+  $right: unset,
+  $zIndex: 2,
+  $position: absolute
+) {
+  z-index: $zIndex;
+  bottom: $bottom;
+  left: $left;
+  position: $position;
+  top: $top;
+  right: $right;
+}
+
 @mixin position(
   $left: unset,
   $right: unset,

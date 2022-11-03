@@ -235,13 +235,15 @@ button {
 }
 .profile-page__playlist--popup {
   background-color: #173b45;
+  padding: 40px 20px;
+  border-radius: 20px;
+  z-index: 1001;
+  bottom: unset;
+  left: 50%;
   position: fixed;
   top: 50%;
-  left: 50%;
+  right: unset;
   transform: translate(-50%, -50%) scale(0);
-  padding: 25px;
-  border-radius: 10px;
-  z-index: 1001;
 }
 .profile-page__playlist--popup button#close {
   float: right;
@@ -262,7 +264,7 @@ button {
   left: 0;
   right: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.336);
   z-index: 1000;
   pointer-events: none;
   opacity: 0;
@@ -282,8 +284,11 @@ button {
 .profile-page__playlist--add-playlist h3 {
   margin: 0;
 }
-.profile-page__playlist input {
+.profile-page__playlist form {
   width: 100%;
+}
+.profile-page__playlist input {
+  width: 93%;
   border: none;
   padding: 10px;
   outline: none;
@@ -481,7 +486,7 @@ button {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-.profile-page__favorite-Song {
+.profile-page__favorite-song {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -490,32 +495,32 @@ button {
   flex-wrap: nowrap;
   gap: 10px;
 }
-.profile-page__favorite-Song--header {
+.profile-page__favorite-song--header {
   width: 100%;
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1568627451);
 }
-.profile-page__favorite-Song--header ul {
+.profile-page__favorite-song--header ul {
   background-color: transparent;
 }
-.profile-page__favorite-Song--header li {
+.profile-page__favorite-song--header li {
   background-color: transparent;
   cursor: pointer;
 }
-.profile-page__favorite-Song #tabs-1 {
+.profile-page__favorite-song #tabs-1 {
   width: 100%;
   padding: 0;
 }
-.profile-page__favorite-Song--button {
+.profile-page__favorite-song--button {
   width: 100%;
   background-color: transparent !important;
   border: none !important;
   padding: 0 !important;
 }
-.profile-page__favorite-Song div#tabsChild-1 {
+.profile-page__favorite-song div#tabsChild-1 {
   padding: 0;
 }
-.profile-page__favorite-Song--upload {
+.profile-page__favorite-song--upload {
   width: 100%;
   height: 300px;
   display: flex;
@@ -525,23 +530,23 @@ button {
   flex-wrap: nowrap;
   gap: 10px;
 }
-.profile-page__favorite-Song--upload img {
+.profile-page__favorite-song--upload img {
   height: 150px;
   width: 150px;
 }
-.profile-page__favorite-Song--upload h4 {
+.profile-page__favorite-song--upload h4 {
   color: #dadada;
 }
-.profile-page__favorite-Song--upload button {
+.profile-page__favorite-song--upload button {
   background-color: #158370;
   color: #dadada;
   border-radius: 20px;
   cursor: pointer;
 }
-.profile-page__favorite-Song--upload button:hover {
+.profile-page__favorite-song--upload button:hover {
   background-color: #17a08a;
 }
-.profile-page__favorite-Song--options {
+.profile-page__favorite-song--options {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -550,7 +555,7 @@ button {
   flex-wrap: nowrap;
   gap: 20px;
 }
-.profile-page__favorite-Song--options > button {
+.profile-page__favorite-song--options > button {
   background-color: transparent;
   color: #fff;
   border: 1px solid #fff;
@@ -563,11 +568,11 @@ button {
   font-size: 12px;
   cursor: pointer;
 }
-.profile-page__favorite-Song--options button.active {
+.profile-page__favorite-song--options button.active {
   background-color: #4a90e2;
   border: none;
 }
-.profile-page__favorite-Song--table {
+.profile-page__favorite-song--table {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -575,7 +580,7 @@ button {
   align-items: flex-start;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--colName {
+.profile-page__favorite-song--col-name {
   width: 100%;
   height: 50px;
   color: #dadada;
@@ -588,12 +593,12 @@ button {
   font-weight: 700;
   margin: 0px;
 }
-.profile-page__favorite-Song--colName h4:nth-child(1) {
+.profile-page__favorite-song--col-name h4:nth-child(1) {
   width: 50%;
   box-sizing: border-box;
   padding: 0 0 0 50px;
 }
-.profile-page__favorite-Song--colName-cover {
+.profile-page__favorite-song--col-name-cover {
   padding: 0;
   width: 50%;
   display: flex;
@@ -602,10 +607,10 @@ button {
   align-items: center;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--colName-cover h4 {
+.profile-page__favorite-song--col-name-cover h4 {
   padding: 0 !important;
 }
-.profile-page__favorite-Song--item {
+.profile-page__favorite-song--item {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -616,32 +621,32 @@ button {
   align-items: center;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--item:hover .profile-page__favorite-Song--cover {
+.profile-page__favorite-song--item:hover .profile-page__favorite-song--cover {
   opacity: 1;
   visibility: inherit;
   z-index: 5;
 }
-.profile-page__favorite-Song--item:hover .profile-page__favorite-Song--backdrop {
+.profile-page__favorite-song--item:hover .profile-page__favorite-song--backdrop {
   opacity: 1;
   visibility: inherit;
 }
-.profile-page__favorite-Song--item:hover .profile-page__favorite-Song--timeOut > span {
+.profile-page__favorite-song--item:hover .profile-page__favorite-song--time-out > span {
   opacity: 0;
   visibility: hidden;
 }
-.profile-page__favorite-Song--item:hover .profile-page__favorite-Song--timeOutBackdrop {
+.profile-page__favorite-song--item:hover .profile-page__favorite-song--time-out-backdrop {
   opacity: 1;
   visibility: inherit;
 }
-.profile-page__favorite-Song--item:hover .profile-page__favorite-Song--number > span {
+.profile-page__favorite-song--item:hover .profile-page__favorite-song--number > span {
   opacity: 0;
   visibility: hidden;
 }
-.profile-page__favorite-Song--item:hover {
+.profile-page__favorite-song--item:hover {
   filter: opacity(0.7);
   background-color: rgba(255, 255, 255, 0.126);
 }
-.profile-page__favorite-Song--fakeDiv {
+.profile-page__favorite-song--template {
   height: 100%;
   width: 50%;
   display: flex;
@@ -650,10 +655,10 @@ button {
   align-items: center;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--album {
+.profile-page__favorite-song--album {
   width: 35%;
 }
-.profile-page__favorite-Song--album span > a {
+.profile-page__favorite-song--album span > a {
   width: auto;
   padding: 0;
   font-size: 12px;
@@ -661,10 +666,10 @@ button {
   margin: 0;
   color: #dadada;
 }
-.profile-page__favorite-Song--album a:hover {
+.profile-page__favorite-song--album a:hover {
   color: #bd4dbd;
 }
-.profile-page__favorite-Song--number {
+.profile-page__favorite-song--number {
   color: #8c99ab;
   height: 100%;
   width: 50px;
@@ -675,7 +680,7 @@ button {
   align-items: center;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--backdrop {
+.profile-page__favorite-song--backdrop {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -688,7 +693,7 @@ button {
   align-items: center;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--backdrop input {
+.profile-page__favorite-song--backdrop input {
   height: 15px;
   width: 15px;
   background-color: transparent;
@@ -702,7 +707,7 @@ button {
   cursor: pointer;
   color: #fff;
 }
-.profile-page__favorite-Song--song {
+.profile-page__favorite-song--song {
   width: 80%;
   height: 100%;
   display: flex;
@@ -712,7 +717,7 @@ button {
   flex-wrap: nowrap;
   gap: 10px;
 }
-.profile-page__favorite-Song--img {
+.profile-page__favorite-song--img {
   height: 45px;
   width: 45px;
   border-radius: 5px;
@@ -720,7 +725,7 @@ button {
   position: relative;
   cursor: pointer;
 }
-.profile-page__favorite-Song--cover {
+.profile-page__favorite-song--cover {
   height: 45px;
   width: 45px;
   position: absolute;
@@ -734,10 +739,10 @@ button {
   opacity: 0;
   visibility: hidden;
 }
-.profile-page__favorite-Song--cover i {
+.profile-page__favorite-song--cover i {
   color: #fff;
 }
-.profile-page__favorite-Song--title {
+.profile-page__favorite-song--title {
   padding-right: 20px;
   display: flex;
   flex-direction: column;
@@ -745,7 +750,7 @@ button {
   align-items: flex-start;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--title span {
+.profile-page__favorite-song--title span {
   font-size: 14px;
   overflow: hidden;
   color: #dadada;
@@ -754,16 +759,16 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.profile-page__favorite-Song--title span > a {
+.profile-page__favorite-song--title span > a {
   padding: 0;
   font-size: 12px;
   color: #8c99ab;
   display: inline;
 }
-.profile-page__favorite-Song--title span > a:hover {
+.profile-page__favorite-song--title span > a:hover {
   color: #bd4dbd;
 }
-.profile-page__favorite-Song--timeOut {
+.profile-page__favorite-song--time-out {
   color: #dadada;
   width: 14%;
   font-size: 12px;
@@ -777,12 +782,12 @@ button {
   gap: 10px;
   position: relative;
 }
-.profile-page__favorite-Song--timeOut button {
+.profile-page__favorite-song--time-out button {
   background-color: transparent;
   color: #fff;
   font-size: 16px;
 }
-.profile-page__favorite-Song--timeOutBackdrop {
+.profile-page__favorite-song--time-out-backdrop {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -795,7 +800,7 @@ button {
   flex-wrap: nowrap;
   gap: 10px;
 }
-.profile-page__favorite-Song--timeOutBackdrop button {
+.profile-page__favorite-song--time-out-backdrop button {
   height: 35px;
   width: 35px;
   background-color: transparent;
@@ -808,14 +813,14 @@ button {
   cursor: pointer;
   color: #fff;
 }
-.profile-page__favorite-Song--timeOutBackdrop button i {
+.profile-page__favorite-song--time-out-backdrop button i {
   font-size: 16px;
 }
-.profile-page__favorite-Song--timeOutBackdrop button:hover {
+.profile-page__favorite-song--time-out-backdrop button:hover {
   background-color: rgba(255, 255, 255, 0.126);
 }
-.profile-page__favorite-Song--podcast {
-  height: 200px;
+.profile-page__favorite-song--podcast {
+  min-height: 500px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -823,7 +828,7 @@ button {
   align-items: center;
   flex-wrap: nowrap;
 }
-.profile-page__favorite-Song--podcast img {
+.profile-page__favorite-song--podcast img {
   height: 150px;
   width: 150px;
 }
@@ -835,11 +840,11 @@ div#tabs {
 
 .button-tabs > li {
   border: none !important;
-  color: white !important;
+  color: #fff !important;
 }
 
 .button-tabs > li a {
-  color: white !important;
+  color: #fff !important;
 }
 
 .ui-tabs .ui-tabs-nav {
@@ -871,6 +876,11 @@ li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab a {
   color: #4a90e2 !important;
 }
 
+.button-tabsChild > li a {
+  border-bottom: 1px solid #fff;
+  border-radius: 15px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -887,11 +897,12 @@ li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab a {
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
+  z-index: unset;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: #ccc;
+  top: 0;
+  background-color: #dadada;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -901,9 +912,12 @@ li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab a {
   content: "";
   height: 10px;
   width: 10px;
-  left: 0px;
+  z-index: unset;
+  bottom: unset;
+  left: 0;
+  right: unset;
   top: 1px;
-  background-color: white;
+  background-color: #fff;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -922,7 +936,6 @@ input:checked + .slider:before {
   transform: translateX(15px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
