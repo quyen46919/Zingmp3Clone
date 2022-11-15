@@ -254,7 +254,7 @@ button {
       }
     }
     &--all:hover {
-      color: $purpose;
+      color: $purple;
     }
     &--content {
       height: 320px;
@@ -349,6 +349,9 @@ button {
     &--card:hover {
       background: $opacityWhite;
     }
+  }
+  a#link {
+    padding: 0;
   }
   &__weekend {
     height: auto;
@@ -457,7 +460,7 @@ button {
       cursor: pointer;
     }
     h4:hover {
-      color: $purpose;
+      color: $purple;
     }
     span {
       font-size: 14px;
@@ -576,7 +579,7 @@ button {
       @include oneLineTextOverflow();
     }
     h4:hover {
-      color: $purpose;
+      color: $purple;
     }
     a {
       padding: 0;
@@ -585,7 +588,7 @@ button {
       color: $textColor;
     }
     a:hover {
-      color: $purpose;
+      color: $purple;
     }
     span {
       font-size: 14px;
@@ -986,7 +989,7 @@ button {
       }
       button {
         border-radius: 20px;
-        background-color: $purpose;
+        background-color: $purple;
         cursor: pointer;
         @include maxWidth($md) {
           height: auto;
@@ -1017,7 +1020,7 @@ button {
       cursor: pointer;
     }
     h3:hover {
-      color: $purpose;
+      color: $purple;
     }
     &--row {
       width: 100%;

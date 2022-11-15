@@ -117,28 +117,6 @@ button {
       );
       gap: 10px;
     }
-    &--card:nth-child(5) .profile-page__lib--cover {
-      height: 178px;
-      width: 178px;
-      border: 0.1px solid $subTitleColor;
-      background-color: $transparent;
-      @include displayFlex(
-        $direc: column,
-        $wrap: nowrap,
-        $justy: center,
-        $align: center
-      );
-      i {
-        font-size: 30px;
-      }
-      &:hover i {
-        color: $purple;
-      }
-    }
-    &--card:nth-child(5):hover i,
-    &--card:nth-child(5):hover h4 {
-      color: $purple;
-    }
 
     &--card h4 {
       @include displayFlex(
