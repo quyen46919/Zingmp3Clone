@@ -1,0 +1,823 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @include customScrollbar($width: 5px);
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  width: 100%;
+  text-decoration: none;
+  color: $linkColor;
+  font-size: 16px;
+  @include padding(10px);
+  @include stackRow(10px);
+}
+
+button {
+  padding: 8px 15px;
+  outline: none;
+  border: none;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  transition: $primaryTransition;
+}
+.research-page {
+  width: calc(100vw - #{$menuLeftWidth});
+  height: auto;
+  min-width: $minWidthPage;
+  background-color: $primaryBlue;
+  color: $white;
+  position: absolute;
+  left: $menuLeftWidth;
+  @include padding(5px 50px 50px 50px);
+  @include maxWidth($lg) {
+    width: calc(100vw - $menuLeftWidthRes);
+    left: $menuLeftWidthRes;
+  }
+  @include displayFlex(
+    $direc: column,
+    $wrap: nowrap,
+    $justy: flex-start,
+    $align: flex-start
+  );
+  &__content {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+  }
+  &__favorite-song {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: center,
+      $align: center
+    );
+    gap: 10px;
+    &--header {
+      width: 100%;
+      background-color: $transparent;
+      border-bottom: 1px solid $gray;
+
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      h3 {
+        @include h3TextStyles();
+        padding-right: 20px;
+        border-right: 0.1px solid $gray;
+        @include maxWidth($md) {
+          display: none;
+        }
+      }
+      ul {
+        background-color: $transparent;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        @include maxWidth($md) {
+          gap: 10px;
+        }
+      }
+      li {
+        background-color: $transparent;
+        cursor: pointer;
+        list-style-type: none;
+        @include padding(0 15px);
+        @include maxWidth($md) {
+          padding: 0;
+        }
+      }
+    }
+    #tabs-1 {
+      width: 100%;
+      padding: 0;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+    }
+    &--button {
+      width: 100%;
+      background-color: $transparent !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+    div#tabsChild-1 {
+      padding: 0;
+    }
+    &--podcast {
+      min-height: 100vh;
+      width: 100%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: center,
+        $align: center
+      );
+      gap: 40px;
+    }
+  }
+  &__artist {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    &--col {
+      width: 100%;
+      height: 115px;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+      gap: 15px;
+    }
+    &--item {
+      height: 100%;
+      width: 33%;
+      background-color: $opacityWhite;
+      border-radius: 5px;
+      overflow: hidden;
+      @include padding(10px 10px);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+
+      &:hover .research-page__artist--cover {
+        opacity: 1;
+        visibility: inherit;
+        z-index: 5;
+      }
+      &:hover .research-page__artist--backdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .research-page__artist--time-out > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover .research-page__artist--time-out-backdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .research-page__artist--number > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover {
+        filter: opacity($primaryOpacity);
+        background-color: $opacityWhite;
+      }
+    }
+    &--template {
+      height: 100%;
+      width: 50%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+    }
+    &--album {
+      width: 35%;
+      span > a {
+        width: auto;
+        padding: 0;
+        @include textStyles($fontSize: 12px);
+        color: $linkColor;
+      }
+      a:hover {
+        color: $purple;
+      }
+    }
+    &--backdrop {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      right: 25%;
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+    }
+    &--song {
+      height: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 10px;
+    }
+    &--img {
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    &--cover {
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include displayFlex();
+      opacity: 0;
+      visibility: hidden;
+      i {
+        color: $white;
+      }
+    }
+    &--title {
+      padding-right: 20px;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+      span {
+        @include textStyles($fontSize: 14px, $fontWeight: 800);
+        overflow: hidden;
+        color: $linkColor;
+        @include oneLineTextOverflow();
+      }
+      span:nth-child(1) {
+        @include textStyles($fontSize: 14px, $fontWeight: 400);
+        color: $subTitleColor;
+        padding-bottom: 10px;
+      }
+      span > a {
+        padding: 0;
+        font-size: 12px;
+        color: $subTitleColor;
+        display: inline;
+        &:hover {
+          color: $purple;
+        }
+      }
+    }
+    &--time-out {
+      color: $subTitleColor;
+      width: 14%;
+      @include textStyles($fontSize: 12px, $fontWeight: 700);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      gap: 10px;
+      position: relative;
+      button {
+        background-color: $transparent;
+        color: $white;
+        font-size: 16px;
+      }
+    }
+    &--time-out-backdrop {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      height: 65px;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      gap: 10px;
+      button {
+        height: 35px;
+        width: 35px;
+        background-color: $transparent;
+        border-radius: 50%;
+        @include displayFlex();
+        cursor: pointer;
+        color: $white;
+        i {
+          font-size: 16px;
+        }
+      }
+      button:hover {
+        background-color: $opacityWhite;
+      }
+    }
+  }
+  &__trending {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    &--button {
+      height: 30px;
+      width: 100%;
+      z-index: $baseZIndex;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+      margin-bottom: 20px;
+      button {
+        width: 90px;
+        background-color: transparent;
+        border: 1px solid rgb(137, 133, 133);
+        border-radius: 20px;
+        color: $white;
+        cursor: pointer;
+        margin-right: 15px;
+        text-align: center;
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: center,
+          $align: center
+        );
+        a {
+          margin: 0;
+          padding: 0;
+          color: $white;
+          font-size: 13px;
+          @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: center,
+            $align: center
+          );
+        }
+      }
+    }
+    &--all {
+      width: 100px;
+      cursor: pointer;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      i {
+        padding-left: 10px;
+      }
+    }
+    &--all:hover {
+      color: $purple;
+    }
+    &--content {
+      height: 210px;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+      gap: 20px;
+    }
+    &--col {
+      height: 100%;
+      width: 50%;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+    }
+  }
+  &__favorite-song {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: space-around,
+      $align: flex-start
+    );
+    &--item {
+      height: 100%;
+      width: 100%;
+
+      @include padding(10px 10px);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: space-between,
+        $align: center
+      );
+
+      &:hover .research-page__favorite-song--cover {
+        opacity: 1;
+        visibility: inherit;
+        z-index: 5;
+      }
+      &:hover .research-page__favorite-song--backdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .research-page__favorite-song--time-out > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover .research-page__favorite-song--time-out-backdrop {
+        opacity: 1;
+        visibility: inherit;
+      }
+      &:hover .research-page__favorite-song--number > span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:hover {
+        filter: opacity($primaryOpacity);
+        background-color: $opacityWhite;
+      }
+    }
+    &--template {
+      height: 100%;
+      width: 60%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+    }
+    &--album {
+      width: 35%;
+      span > a {
+        width: auto;
+        padding: 0;
+        @include textStyles($fontSize: 12px);
+        color: $linkColor;
+      }
+      a:hover {
+        color: $purple;
+      }
+    }
+    &--backdrop {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      right: 25%;
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      input {
+        height: 15px;
+        width: 15px;
+        background-color: $transparent;
+        color: $transparent;
+        border-radius: 50%;
+        @include displayFlex();
+        cursor: pointer;
+        color: $white;
+      }
+    }
+    &--song {
+      width: 80%;
+      height: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: center
+      );
+      gap: 10px;
+    }
+    &--img {
+      height: 45px !important;
+      width: 45px !important;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &--cover {
+      height: 45px;
+      width: 45px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include displayFlex();
+      opacity: 0;
+      visibility: hidden;
+      i {
+        color: $white;
+      }
+    }
+    &--title {
+      padding-right: 20px;
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+      span {
+        font-size: 14px;
+        overflow: hidden;
+        color: $linkColor;
+        @include oneLineTextOverflow();
+      }
+      span > a {
+        padding: 0;
+        font-size: 12px;
+        color: $subTitleColor;
+        display: inline;
+        &:hover {
+          color: $purple;
+        }
+      }
+    }
+    &--time-out {
+      color: $subTitleColor;
+      width: 14%;
+      @include textStyles($fontSize: 12px, $fontWeight: 700);
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      gap: 10px;
+      position: relative;
+      button {
+        background-color: $transparent;
+        color: $white;
+        font-size: 16px;
+      }
+    }
+    &--time-out-backdrop {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      height: 65px;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: nowrap,
+        $justy: flex-end,
+        $align: center
+      );
+      button {
+        height: 35px;
+        width: 35px;
+        background-color: $transparent;
+        border-radius: 50%;
+        @include displayFlex();
+        cursor: pointer;
+        color: $white;
+        i {
+          font-size: 16px;
+        }
+      }
+      button:hover {
+        background-color: $opacityWhite;
+      }
+    }
+  }
+  &__playlist {
+    width: 100%;
+    @include displayFlex(
+      $direc: column,
+      $wrap: nowrap,
+      $justy: flex-start,
+      $align: flex-start
+    );
+    h2 {
+      margin-top: 0;
+    }
+    &--row {
+      height: 100%;
+      width: 100%;
+      @include displayFlex(
+        $direc: row,
+        $wrap: wrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--card {
+      width: 20%;
+      z-index: $baseZIndex;
+      @include padding(0 10px);
+      @include displayFlex(
+        $direc: column,
+        $wrap: nowrap,
+        $justy: flex-start,
+        $align: flex-start
+      );
+    }
+    &--cover {
+      height: 75%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      * {
+        transition: $cardHoverTransition;
+      }
+      img {
+        height: 60%;
+        width: 100%;
+        border-radius: 5px;
+      }
+      &-backdrop {
+        @include backdropStyles(
+          $left: 0,
+          $top: 0,
+          $zIndex: 100,
+          $height: 100%,
+          $width: 100%,
+          $position: absolute,
+          $opacity: 0,
+          $visibility: hidden
+        );
+        transition: $secondaryTransition;
+        @include padding(0 10px 0 10px);
+        @include displayFlex(
+          $direc: row,
+          $wrap: nowrap,
+          $justy: space-around,
+          $align: center
+        );
+        button {
+          height: 40px;
+          width: 40px;
+          background-color: $transparent;
+          border-radius: 50%;
+          @include displayFlex();
+          cursor: pointer;
+        }
+        button:nth-child(2) {
+          height: 60px;
+          width: 60px;
+          & > i {
+            font-size: 40px;
+          }
+        }
+        button:hover {
+          background-color: $opacityWhite;
+        }
+        button:nth-child(2):hover {
+          background-color: $transparent;
+        }
+        i {
+          color: $white;
+          font-size: 17px;
+        }
+      }
+      &:hover > &-backdrop {
+        opacity: 1;
+        visibility: initial;
+
+        background-color: $opacityBlack;
+      }
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    &--img {
+      height: 100%;
+      width: 100%;
+    }
+    h4 {
+      @include h4TextStyles($fontSize: 14px);
+      margin: 10px 0 5px 0;
+      cursor: pointer;
+    }
+    h4:hover {
+      color: $purple;
+    }
+    span {
+      font-size: 14px;
+      overflow: hidden;
+      color: $linkColor;
+      @include oneLineTextOverflow();
+    }
+    span > a {
+      padding: 0;
+      font-size: 14px;
+      color: $subTitleColor;
+      display: inline;
+      &:hover {
+        color: $purple;
+      }
+    }
+  }
+}
+div#tabs-1 {
+  width: 100%;
+}
+div#tabs-2 {
+  width: 100%;
+}
+div#tabs-3 {
+  width: 100%;
+}
+div#tabs-4 {
+  width: 100%;
+}
+div#tabs {
+  width: 100%;
+  background: $transparent;
+  border: none;
+  @include displayFlex(
+    $direc: column,
+    $wrap: nowrap,
+    $justy: center,
+    $align: flex-start
+  );
+  gap: 20px;
+}
+.button-tabs > li {
+  border: none !important;
+  color: $white !important;
+}
+.button-tabs > li a {
+  color: $white !important;
+}
+.ui-tabs .ui-tabs-nav {
+  margin: 0;
+  border: none !important;
+  padding: 0 !important;
+}
+.button-tabs > li.ui-tabs-active a {
+  height: 60px;
+  border-bottom: 3px solid $green3 !important;
+}
+
+li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
+  background: transparent;
+  border-radius: 30px;
+}
+li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab a {
+  color: $linkColor;
+  margin: 0;
+  padding: 5px 10px;
+}
+.button-tabsChild > li.ui-tabs-active a {
+  border-bottom: 1px solid $blue !important;
+  border: none;
+  border-radius: 20px;
+  color: $blue !important;
+}
+.button-tabsChild > li a {
+  border-bottom: 1px solid $white;
+  border-radius: 15px;
+}

@@ -376,6 +376,9 @@ button {
 .homepage__trending--card:hover {
   background: rgba(255, 255, 255, 0.126);
 }
+.homepage a#link {
+  padding: 0;
+}
 .homepage__weekend {
   height: auto;
   width: 100%;
