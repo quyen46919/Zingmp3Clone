@@ -1,158 +1,158 @@
 @mixin padding($padding: 0) {
-  box-sizing: border-box;
-  padding: $padding;
+    box-sizing: border-box;
+    padding: $padding;
 }
 
 @mixin displayFlex(
-  $direc: column,
-  $wrap: nowrap,
-  $justy: center,
-  $align: center
+    $direc: column,
+    $wrap: nowrap,
+    $justy: center,
+    $align: center
 ) {
-  display: flex;
-  flex-direction: $direc;
-  justify-content: $justy;
-  align-items: $align;
-  flex-wrap: $wrap;
+    display: flex;
+    flex-direction: $direc;
+    justify-content: $justy;
+    align-items: $align;
+    flex-wrap: $wrap;
 }
 
 @mixin stackRow($gap: 0) {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: $gap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $gap;
 }
 
 @mixin stackColumn($gap: 0) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: $gap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $gap;
 }
 
 @mixin displayGridAutoFit(
-  $width: 250px,
-  $alignItems: flex-start,
-  $justy: flex-start
+    $width: 250px,
+    $alignItems: flex-start,
+    $justy: flex-start
 ) {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
-  align-items: $alignItems;
-  justify-content: $justy;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
+    align-items: $alignItems;
+    justify-content: $justy;
 }
 
 @mixin customScrollbar($width: 10px, $height: 0px) {
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: $width;
-    height: $height;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgb(214, 214, 214);
-    border-radius: 5px;
-  }
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: $width;
+        height: $height;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgb(214, 214, 214);
+        border-radius: 5px;
+    }
 }
 
 @mixin oneLineTextOverflow($maxWidth: 100%) {
-  max-width: $maxWidth;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    max-width: $maxWidth;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @mixin twoLineTextOverflow($maxWidth: 100%) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 @mixin backdropStyles(
-  $left: unset,
-  $bottom: unset,
-  $top: unset,
-  $right: unset,
-  $zIndex: 2,
-  $height: 100%,
-  $width: 100%,
-  $position: absolute,
-  $opacity: 0,
-  $visibility: hidden
+    $left: unset,
+    $bottom: unset,
+    $top: unset,
+    $right: unset,
+    $zIndex: 2,
+    $height: 100%,
+    $width: 100%,
+    $position: absolute,
+    $opacity: 0,
+    $visibility: hidden
 ) {
-  z-index: $zIndex;
-  bottom: $bottom;
-  left: $left;
-  height: $height;
-  width: $width;
-  position: $position;
-  opacity: $opacity;
-  visibility: $visibility;
-  top: $top;
-  right: $right;
+    z-index: $zIndex;
+    bottom: $bottom;
+    left: $left;
+    height: $height;
+    width: $width;
+    position: $position;
+    opacity: $opacity;
+    visibility: $visibility;
+    top: $top;
+    right: $right;
 }
 
 @mixin popupStyles(
-  $left: unset,
-  $bottom: unset,
-  $top: unset,
-  $right: unset,
-  $zIndex: 2,
-  $position: absolute
+    $left: unset,
+    $bottom: unset,
+    $top: unset,
+    $right: unset,
+    $zIndex: 2,
+    $position: absolute
 ) {
-  z-index: $zIndex;
-  bottom: $bottom;
-  left: $left;
-  position: $position;
-  top: $top;
-  right: $right;
+    z-index: $zIndex;
+    bottom: $bottom;
+    left: $left;
+    position: $position;
+    top: $top;
+    right: $right;
 }
 
 @mixin position(
-  $left: unset,
-  $right: unset,
-  $top: unset,
-  $bottom: unset,
-  $zIndex: unset
+    $left: unset,
+    $right: unset,
+    $top: unset,
+    $bottom: unset,
+    $zIndex: unset
 ) {
-  z-index: $zIndex;
-  bottom: $bottom;
-  left: $left;
-  right: $right;
-  top: $top;
+    z-index: $zIndex;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+    top: $top;
 }
 @mixin h4TextStyles($fontSize: 16px, $fontWeight: 700, $margin: 0px) {
-  font-size: $fontSize;
-  font-weight: $fontWeight;
-  margin: $margin;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    margin: $margin;
 }
 @mixin h1TextStyles($fontSize: 40px, $fontWeight: 700, $margin: 0px) {
-  font-size: $fontSize;
-  font-weight: $fontWeight;
-  margin: $margin;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    margin: $margin;
 }
 @mixin h3TextStyles($fontSize: 30px, $fontWeight: 700, $margin: 0px) {
-  font-size: $fontSize;
-  font-weight: $fontWeight;
-  margin: $margin;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    margin: $margin;
 }
 @mixin textStyles($fontSize: 14px, $fontWeight: 400) {
-  font-size: $fontSize;
-  font-weight: $fontWeight;
-  margin: 0;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    margin: 0;
 }
 
 // MEDIA QUERIES DESKTOP FIRST
 @mixin maxWidth($value) {
-  @media screen and (max-width: $value) {
-    @content;
-  }
+    @media screen and (max-width: $value) {
+        @content;
+    }
 }
 
 // MEDIA QUERIES MOBILE FIRST
 @mixin minWidth($value) {
-  @media screen and (min-width: $value) {
-    @content;
-  }
+    @media screen and (min-width: $value) {
+        @content;
+    }
 }

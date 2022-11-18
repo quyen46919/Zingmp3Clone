@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <link rel="icon" href="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.29/static/media/icon_zing_mp3_60.f6b51045.svg" />
+    <title>ZingMP3 | Homepage</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
@@ -16,14 +16,12 @@
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
       />
     <link rel="stylesheet" href="./pages/home_page/styles.css" />
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./scss/header/styles.css" />
   </head>
   <body>
-    <div class="home">
+    <div class="container">
       <!-- start left menu -->
-      <div class="home__menu">
-        <a href="/index.html" class="home__menu--logo"></a>
+      <div class="left-menu">
+        <a href="/index.html" class="left-menu__box--logo"></a>
         <a href="./pages/profile_page/index.html" tooltip="Cá nhân">
           <i class="fa-solid fa-list-ol"></i>
           <span>Cá nhân</span>
@@ -40,7 +38,7 @@
           <i class="fa-solid fa-folder-plus"></i>
           <span>Theo dõi</span>
         </a>
-        <div class="home__menu--divider"></div>
+        <div class="left-menu__box--divider"></div>
         <a href="#" tooltip="Nhạc mới">
           <i class="fa-solid fa-music"></i>
           <span>Nhạc mới</span>
@@ -57,7 +55,7 @@
           <i class="fa-solid fa-play"></i>
           <span>MV</span>
         </a>
-        <div class="home__menu--vip">
+        <div class="left-menu__box--vip">
           <div>Nghe nhạc không quảng cáo cùng kho nhạc VIP</div>
           <button>NÂNG CẤP VIP</button>
         </div>
@@ -65,59 +63,51 @@
       <!-- end left menu -->
 
       <!-- start main content -->
-      <div class="home__content">
-        <div class="homepage">
+      <div class="homepage">
+        <div class="homepage__content">
+          <!-- HEADER -->
           <div class="header">
             <div class="header--left">
-              <i class="fa fa-arrow-left"></i>
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              <div class="header--search">
-                <a id="input" href="./pages/research_page/index.html"><i class="fa fa-search" aria-hidden="true"></i></a>
-                <input
-                  type="text"
-                  spellcheck="false"
-                  placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát..."
-                  />
-              </div>
+                <i class="fa fa-arrow-left"></i>
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                <div class="header--search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" spellcheck="false" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát..." />
+                </div>
             </div>
             <div class="header--right">
-              <button>
-                <i class="fa fa-adjust" aria-hidden="true"></i>
-              </button>
-              <button>
-                <i class="fa fa-diamond" aria-hidden="true"></i>
-              </button>
-              <button>
-                <i class="fa fa-upload" aria-hidden="true"></i></button><button>
-                <i class="fa fa-cog" aria-hidden="true"></i>
-              </button>
-              <div
-                class="header--avatar"
-                id="header--avatar"
-                onclick="toggleMenu()"></div>
+                <button>
+                    <i class="fa fa-adjust" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i class="fa fa-diamond" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i class="fa fa-upload" aria-hidden="true"></i></button><button>
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                </button>
+                <div class="header--avatar" id="header--avatar" onclick="toggleMenu()"></div>
 
-              <div class="header--popup" id="header--popup">
-                <div class="header--popup--vip">
-                  <div class="header--popup--upgrade">
-                    <i class="fa-regular fa-gem"></i>
-                    <p>Nâng cấp VIP</p>
-                  </div>
-                  <div class="header--popup--buy">
-                    <i class="fa-regular fa-credit-card"></i>
-                    <p>Mua code VIP</p>
-                  </div>
+                <div class="header--popup" id="header--popup">
+                    <div class="header--popup--vip">
+                        <a href="../auth_page/login.html" class="header--popup--row">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <p>Đăng nhập</p>
+                        </a>
+                        <a href="../auth_page/logup.html" class="header--popup--row">
+                            <i class="fa-sharp fa-solid fa-user-plus"></i>
+                            <p>Đăng ký</p>
+                        </a>
+                    </div>
+                    <a class="header--popup--row">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <p>Đăng xuất</p>
+                    </a>
                 </div>
-                <div class="header--popup--logout">
-                  <i class="fa-regular fa-user"></i>
-                  <p>Đăng xuất</p>
-                </div>
-              </div>
-              <div
-                onclick="toggleMenu()"
-                class="header--backdrop"
-                id="header--backdrop"></div>
+                <div onclick="toggleMenu()" class="header--backdrop" id="header--backdrop"></div>
             </div>
-          </div>
+        </div>
+          <!-- END HEADER -->
           <div class="homepage__poster">
             <div class="homepage__poster--item">
               <img
@@ -1115,7 +1105,7 @@
         src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
       <script src="./pages/home_page/poster.js"></script>
       <script src="./pages/home_page/singer.js"></script>
-      <script src="./scss/header/accountPopUp.js"></script>
+      <script src="./components/header/accountPopUp.js"></script>
       <script
         src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
         integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
