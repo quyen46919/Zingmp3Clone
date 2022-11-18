@@ -1,0 +1,18 @@
+@import '../../scss/variables.scss';
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    display: flex;
+
+    & > div:not(.left-menu) {
+        width: calc(100% - #{$menuLeftWidth});
+        margin-left: $menuLeftWidth;
+
+        @include maxWidth($lg) {
+            width: calc(100% - #{$menuLeftWidthRes});
+            margin-left: $menuLeftWidthRes;
+        }
+    }
+}

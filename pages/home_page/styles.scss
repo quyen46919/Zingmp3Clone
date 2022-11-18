@@ -1,1059 +1,939 @@
-@import "../../scss/variables.scss";
-@import "../../scss/mixins.scss";
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+@import '../../scss/base.scss';
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  @include customScrollbar();
-}
-
-* {
-  font-family: "Roboto", sans-serif;
-}
-
-a {
-  width: 100%;
-  text-decoration: none;
-  color: $linkColor;
-  font-size: 16px;
-  @include padding(10px);
-  @include stackRow(10px);
-}
-
-button {
-  padding: 8px 15px;
-  outline: none;
-  border: none;
-}
-
-.home {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  transition: $primaryTransition;
-  &__menu {
-    a {
-      cursor: pointer;
-      z-index: $baseZIndex;
-      &:hover {
-        color: $white;
-        position: relative;
-      }
-      @include maxWidth($lg) {
-        font-size: 20px;
-        margin-top: 10px;
-        margin-left: 5px;
-        span {
-          display: none;
-        }
-        &:hover {
-          color: $white;
-          position: relative;
-
-          &:not(:first-of-type)::after {
-            width: $menuLeftWidthRes;
-            padding: 3px 5px;
-            content: attr(tooltip);
-            position: absolute;
-            @include position($left: 100%, $top: 50%, $zIndex: 100);
-            border-radius: 5px;
-            color: $tooltipColor;
-            background-color: $white;
-            transform: translate(0%, -50%);
-            transition: $primaryTransition;
-            font-size: 15px;
-            text-align: center;
-          }
-        }
-      }
-    }
-    width: $menuLeftWidth;
-    height: 100vh;
-    background-color: $secondaryBlue;
-    @include stackColumn();
-    @include padding(0 10px);
-    position: fixed;
-    z-index: $baseZIndex;
-    top: 0;
-    left: 0;
-    @include maxWidth($lg) {
-      width: 70px;
-      transition: $secondaryTransition;
-    }
-
-    &--logo {
-      height: 40px;
-      margin: 20px 0 14px 0;
-      z-index: $baseZIndex;
-      background: $zingmp3Logo 13% / contain no-repeat;
-      @include maxWidth($lg) {
-        background: $zingmp3LogoIcon;
-        background-repeat: no-repeat;
-        height: 45px;
-      }
-    }
-
-    &--divider {
-      width: 100%;
-      height: 1px;
-      margin: 20px 0;
-      border-top: 1px solid $dividerColor;
-    }
-
-    &--vip {
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      color: $white;
-      font-size: 14px;
-      background-image: linear-gradient(117deg, #5a4be7, #c86dd7 102%);
-
-      button {
-        width: 100%;
-        margin-top: 16px;
-        background-color: $yellow;
-        border-radius: 10px;
-        cursor: pointer;
-      }
-      @include maxWidth($lg) {
-        display: none;
-      }
-    }
-  }
-
-  &__content {
-    width: calc(100vw - #{$menuLeftWidth});
-    min-width: $minWidthPage;
+.homepage {
     background-color: $primaryBlue;
     color: $white;
-    position: absolute;
-    left: $menuLeftWidth;
-    @include padding(5px 50px 50px 50px);
-    @include maxWidth($lg) {
-      width: calc(100vw - $menuLeftWidthRes);
-      left: $menuLeftWidthRes;
-    }
-  }
-}
-.homepage {
-  height: 100%;
-  @include displayFlex(
-    $direc: column,
-    $wrap: nowrap,
-    $justy: center,
-    $align: center
-  );
-  gap: 13px;
-  &__poster {
-    width: 100%;
-    height: auto;
-    transition: $primaryTransition;
-    @include padding(20px 0);
-    cursor: pointer;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    &--item {
-      height: auto;
-      width: 33%;
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      z-index: $baseZIndex;
-      img {
-        height: auto;
-        width: 100%;
-        background-image: cover;
-      }
-    }
-    &--item.slick-slide {
-      @include padding(0 5px);
-      z-index: $baseZIndex;
-    }
-    button {
-      opacity: 0;
-      height: 50px;
-      width: 50px;
-      position: absolute;
-      z-index: $baseZIndex;
-      top: 40%;
-      border-radius: 50%;
-      padding: 0;
-      @include maxWidth($md) {
-        height: 30px;
-        width: 30px;
-      }
-    }
-    button.slick-prev {
-      left: 5px;
-    }
-    button.slick-next {
-      right: 5px;
-    }
-    &:hover button {
-      opacity: 0.5;
-      transition: $primaryTransition;
-      cursor: pointer;
-    }
-  }
-  &__trending {
-    width: 100%;
-    @include displayFlex(
-      $direc: column,
-      $wrap: nowrap,
-      $justy: flex-start,
-      $align: flex-start
-    );
-    &--button {
-      height: 30px;
-      width: 100%;
-      z-index: $baseZIndex;
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: space-between,
-        $align: center
-      );
-      margin-bottom: 20px;
-      button {
-        width: 90px;
-        background-color: transparent;
-        border: 1px solid rgb(137, 133, 133);
-        border-radius: 20px;
-        color: $white;
-        cursor: pointer;
-        margin-right: 15px;
-        text-align: center;
+    @include padding(0 20px);
+
+    &__content {
+        height: 100%;
         @include displayFlex(
-          $direc: row,
-          $wrap: nowrap,
-          $justy: center,
-          $align: center
-        );
-        a {
-          margin: 0;
-          padding: 0;
-          color: $white;
-          font-size: 13px;
-          @include displayFlex(
-            $direc: row,
+            $direc: column,
             $wrap: nowrap,
             $justy: center,
             $align: center
-          );
-        }
-      }
-    }
-    &--all {
-      width: 100px;
-      cursor: pointer;
-      i {
-        padding-left: 10px;
-      }
-    }
-    &--all:hover {
-      color: $purple;
-    }
-    &--content {
-      height: 320px;
-      width: 100%;
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: space-between,
-        $align: center
-      );
-    }
-    &--col {
-      height: 100%;
-      width: 33%;
-      @include displayFlex(
-        $direc: column,
-        $wrap: nowrap,
-        $justy: space-between,
-        $align: center
-      );
-    }
-    &--card {
-      height: 25%;
-      width: 100%;
-
-      z-index: $baseZIndex;
-      position: relative;
-      cursor: pointer;
-      @include padding(10px);
-      border-radius: 5px;
-      h4 {
-        margin: 0;
-        @include oneLineTextOverflow();
-      }
-    }
-    &--cover {
-      height: 100%;
-      width: 100%;
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: flex-start,
-        $align: center
-      );
-    }
-    &--img {
-      height: 100%;
-      width: 70px;
-      background-size: cover;
-      margin-right: 10px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    &--title {
-      height: 100%;
-      width: 55%;
-      overflow: hidden;
-      @include displayFlex(
-        $direc: column,
-        $wrap: nowrap,
-        $justy: space-around,
-        $align: space-between
-      );
-      span {
-        font-size: 12px;
-        color: $textColor;
-        @include oneLineTextOverflow();
-      }
-    }
-    &--icon {
-      width: 85%;
-      transition: $cardHoverTransition;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      @include padding(0 10px 0 10px);
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: space-between,
-        $align: center
-      );
-    }
-    &--card:hover .homepage__trending--icon {
-      opacity: 1;
-    }
-    &--card:hover .homepage__trending--img {
-      opacity: 0.3;
-    }
-    &--card:hover {
-      background: $opacityWhite;
-    }
-  }
-  a#link {
-    padding: 0;
-  }
-  &__weekend {
-    height: auto;
-    width: 100%;
-    @include displayFlex(
-      $direc: column,
-      $wrap: nowrap,
-      $justy: flex-start,
-      $align: flex-start
-    );
-    &--row {
-      height: 95%;
-      width: 100%;
-      @include displayGridAutoFit($width: 200px);
-      gap: 20px !important;
-    }
-    &--card {
-      width: 100%;
-
-      z-index: $baseZIndex;
-      @include displayFlex(
-        $direc: column,
-        $wrap: nowrap,
-        $justy: flex-start,
-        $align: flex-start
-      );
-    }
-    &--cover {
-      height: 75%;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 5px;
-      position: relative;
-      cursor: pointer;
-      * {
-        transition: $cardHoverTransition;
-      }
-      img {
-        height: 60%;
-        width: 100%;
-        border-radius: 5px;
-      }
-      &-backdrop {
-        @include backdropStyles(
-          $left: 0,
-          $top: 0,
-          $zIndex: 100,
-          $height: 100%,
-          $width: 100%,
-          $position: absolute,
-          $opacity: 0,
-          $visibility: hidden
         );
-        transition: $secondaryTransition;
-        @include padding(0 10px 0 10px);
-        @include displayFlex(
-          $direc: row,
-          $wrap: nowrap,
-          $justy: space-around,
-          $align: center
-        );
-        button {
-          height: 40px;
-          width: 40px;
-          background-color: $transparent;
-          border-radius: 50%;
-          @include displayFlex();
-          cursor: pointer;
-        }
-        button:nth-child(2) {
-          height: 60px;
-          width: 60px;
-          & > i {
-            font-size: 40px;
-          }
-        }
-        button:hover {
-          background-color: $opacityWhite;
-        }
-        button:nth-child(2):hover {
-          background-color: $transparent;
-        }
-        i {
-          color: $white;
-          font-size: 17px;
-        }
-      }
-      &:hover > &-backdrop {
-        opacity: 1;
-        visibility: initial;
-
-        background-color: $opacityBlack;
-      }
-      &:hover img {
-        transform: scale(1.1);
-      }
+        gap: 13px;
     }
 
-    &--img {
-      height: 100%;
-      width: 100%;
-    }
-    h4 {
-      @include h4TextStyles($fontSize: 14px);
-      margin-top: 10px;
-      cursor: pointer;
-    }
-    h4:hover {
-      color: $purple;
-    }
-    span {
-      font-size: 14px;
-      color: $textColor;
-      @include twoLineTextOverflow();
-    }
-  }
-  &__new {
-    width: 100%;
-    @include displayFlex(
-      $direc: column,
-      $wrap: nowrap,
-      $justy: flex-start,
-      $align: flex-start
-    );
-    margin-bottom: 20px;
-    &--row {
-      width: 100%;
-      @include displayGridAutoFit($width: 200px);
-      gap: 20px !important;
-    }
-    &--card {
-      width: 100%;
-      z-index: $baseZIndex;
-      overflow: hidden;
-      @include displayFlex(
-        $direc: column,
-        $wrap: nowrap,
-        $justy: flex-start,
-        $align: flex-start
-      );
-    }
-    &--cover {
-      height: 75%;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 5px;
-      position: relative;
-      cursor: pointer;
-      * {
-        transition: $cardHoverTransition;
-      }
-      img {
-        height: 100%;
+    &__poster {
         width: 100%;
-        border-radius: 5px;
-      }
-      &-backdrop {
-        @include backdropStyles(
-          $height: 100%,
-          $width: 100%,
-          $position: absolute,
-          $opacity: 0,
-          $visibility: hidden,
-          $left: 0,
-          $top: 0,
-          $zIndex: 100
-        );
-        transition: $secondaryTransition;
-        visibility: hidden;
-        @include padding(0 10px 0 10px);
-        @include displayFlex(
-          $direc: row,
-          $wrap: nowrap,
-          $justy: space-around,
-          $align: center
-        );
-        button {
-          height: 40px;
-          width: 40px;
-          background-color: $transparent;
-          border-radius: 50%;
-          @include displayFlex();
-          cursor: pointer;
-        }
-        button:nth-child(2) {
-          height: 60px;
-          width: 60px;
-          & > i {
-            font-size: 40px;
-          }
-        }
-        button:hover {
-          background-color: $opacityWhite;
-        }
-        button:nth-child(2):hover {
-          background-color: $transparent;
-        }
-        i {
-          color: $white;
-          font-size: 17px;
-        }
-      }
-      &:hover > &-backdrop {
-        opacity: 1;
-        visibility: initial;
-
-        background-color: $opacityBlack;
-      }
-      &:hover img {
-        transform: scale(1.1);
-      }
-    }
-
-    &--img {
-      height: 100%;
-      width: 100%;
-    }
-
-    h4 {
-      overflow: hidden;
-      margin: 0;
-      @include padding(5px 0);
-      font-size: 14px;
-      color: $white;
-      @include oneLineTextOverflow();
-    }
-    h4:hover {
-      color: $purple;
-    }
-    a {
-      padding: 0;
-      display: inline;
-      font-size: 14px;
-      color: $textColor;
-    }
-    a:hover {
-      color: $purple;
-    }
-    span {
-      font-size: 14px;
-      color: $textColor;
-      @include twoLineTextOverflow();
-    }
-  }
-  &__chart {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: #2b4577;
-    @include padding(10px 20px);
-    @include displayFlex(
-      $direc: column,
-      $wrap: nowrap,
-      $justy: flex-start,
-      $align: flex-start
-    );
-    gap: 10px;
-    &--hashtag {
-      height: 19%;
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: flex-start,
-        $align: center
-      );
-      a {
-        @include h4TextStyles($fontSize: 28px, $fontWeight: 700);
-      }
-      a:hover {
-        color: $green;
-      }
-      button.icon {
-        background-color: $transparent;
-        cursor: pointer;
-        border: none;
-        &:hover {
-          background-color: $transparent;
-        }
-      }
-      i {
-        color: $white;
-        font-size: 34px;
-      }
-      i:hover {
-        filter: opacity($primaryOpacity);
-      }
-    }
-    &--content {
-      height: 90%;
-      width: 100%;
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: flex-start,
-        $align: center
-      );
-      @include maxWidth($lg) {
-        @include displayFlex(
-          $direc: column-reverse,
-          $wrap: nowrap,
-          $justy: center,
-          $align: center
-        );
-      }
-
-      gap: 40px;
-    }
-    &--left {
-      width: 41%;
-      @include maxWidth($lg) {
-        width: 100%;
-      }
-    }
-    &--col {
-      height: 100%;
-      width: 100%;
-      @include displayFlex(
-        $direc: column,
-        $wrap: nowrap,
-        $justy: flex-start,
-        $align: center
-      );
-      gap: 10px;
-    }
-    &--card {
-      height: $smallCardHeight;
-      width: 100%;
-      background-color: $opacityWhite2;
-      z-index: $baseZIndex;
-      cursor: pointer;
-      @include padding(10px);
-      border-radius: 5px;
-      h4 {
-        margin: 0;
-        @include oneLineTextOverflow();
-      }
-    }
-    &--card:nth-child(1) > .homepage__chart--cover span.number {
-      -webkit-text-stroke: 2px $blue;
-    }
-    &--card:nth-child(2) > .homepage__chart--cover span.number {
-      -webkit-text-stroke: 2px $green2;
-    }
-    &--card:nth-child(3) > .homepage__chart--cover span.number {
-      -webkit-text-stroke: 2px $orange;
-    }
-    &--cover {
-      height: 100%;
-      width: 100%;
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: flex-start,
-        $align: center
-      );
-      span.number {
-        @include h4TextStyles($fontSize: 32px, $fontWeight: 900, $margin: 0px);
-        text-align: center;
-        font-family: "Roboto", sans-serif;
-        white-space: nowrap;
-        color: $transparent;
-        opacity: 1;
-        @include padding(0 20px 0 10px);
-      }
-      span.per {
-        @include h4TextStyles($fontSize: 16px, $fontWeight: 700, $margin: 0px);
-        line-height: 1.56;
-      }
-    }
-    &--img {
-      height: 100%;
-      width: 70px;
-      position: relative;
-      background-size: cover;
-      margin-right: 10px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    &--title {
-      height: 100%;
-      width: 75%;
-      overflow: hidden;
-      margin-right: 10px;
-      @include displayFlex(
-        $direc: column,
-        $wrap: nowrap,
-        $justy: center,
-        $align: space-between
-      );
-      gap: 5px;
-      a {
-        padding: 0;
-        display: inline;
-        font-size: 14px;
-        color: $textColor;
-      }
-      a:hover {
-        color: $green;
-        z-index: $baseZIndex;
-      }
-      span {
-        font-size: 12px;
-        color: $textColor;
-        @include oneLineTextOverflow();
-
-        z-index: $baseZIndex;
-      }
-    }
-    &--icon {
-      width: 70px;
-      height: 100%;
-      transition: $cardHoverTransition;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      right: 50%;
-      transform: translate(50%, -50%);
-      @include padding(0 10px 0 10px);
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: center,
-        $align: center
-      );
-      z-index: 100;
-    }
-    button {
-      cursor: pointer;
-      background-color: $transparent;
-      border: 1px solid $white;
-      border-radius: 18px;
-      color: $white;
-      margin-top: 10px;
-      &:hover {
-        background-color: $opacityWhite2;
-      }
-    }
-    &--card:hover .homepage__chart--icon {
-      opacity: 1;
-    }
-    &--card:hover .homepage__chart--img {
-      opacity: 0.7;
-    }
-    &--card:hover {
-      background: $opacityWhite;
-    }
-    &--right {
-      width: 59%;
-      @include maxWidth($lg) {
-        width: 100%;
-      }
-      &--chart {
-        z-index: 100;
-        @include displayFlex(
-          $direc: row,
-          $wrap: nowrap,
-          $justy: center,
-          $align: center
-        );
-      }
-    }
-  }
-  &__zingchart {
-    width: 100%;
-    height: auto;
-    @include displayGridAutoFit($width: 100px);
-    gap: 30px !important;
-    @include padding(30px 0 0 0);
-    &--item {
-      width: 100%;
-      height: 100%;
-      z-index: $baseZIndex;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 5px;
-      * {
-        transition: $cardHoverTransition;
-      }
-      img {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-      }
-      &:hover img {
-        transform: scale(1.1);
-        transition: $primaryTransition;
-      }
-    }
-  }
-
-  &__singer {
-    width: 100%;
-    transition: $primaryTransition;
-    cursor: pointer;
-    &--item {
-      cursor: pointer;
-      z-index: $baseZIndex;
-      img {
-        height: 100%;
-        width: 100%;
-
-        @include padding(20px 10px);
-      }
-      &:hover img {
-        filter: opacity($primaryOpacity);
-        * {
-          transition: $cardHoverTransition;
-        }
-      }
-    }
-    &--item.slick-slide {
-      @include padding(0 5px);
-    }
-    button {
-      opacity: 0;
-      height: 50px;
-      width: 50px;
-      position: absolute;
-      z-index: $baseZIndex;
-      top: 40%;
-      border-radius: 50%;
-      padding: 0;
-      @include maxWidth($md) {
-        height: 30px;
-        width: 30px;
-      }
-    }
-    button.slick-prev {
-      left: 5px;
-    }
-    button.slick-next {
-      right: 5px;
-    }
-    &:hover button {
-      opacity: 0.5;
-      transition: $primaryTransition;
-      cursor: pointer;
-    }
-  }
-  &__event {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    @include displayGridAutoFit($width: $itemCardWidth);
-    gap: 30px !important;
-    overflow: hidden;
-    @include displayFlex(
-      $direc: row,
-      $wrap: nowrap,
-      $justy: flex-start,
-      $align: center
-    );
-    &--item {
-      width: 100%;
-      height: 100%;
-      z-index: $baseZIndex;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    &--img {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 10px;
-      position: relative;
-      * {
-        transition: $cardHoverTransition;
-      }
-      span {
-        font-size: 9px;
-        @include padding(2px 4px);
-        border-radius: 2px;
-        color: $titleColor2;
-        background-color: $white;
-        text-transform: uppercase;
-        @include maxWidth($md) {
-          font-size: 7px;
-        }
-      }
-      h4 {
-        @include oneLineTextOverflow();
-        @include h4TextStyles($margin: 2px);
-        @include maxWidth($md) {
-          font-size: 14px;
-        }
-      }
-      p {
-        @include textStyles();
-        @include maxWidth($md) {
-          font-size: 12px;
-        }
-      }
-      img {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        cursor: pointer;
-        * {
-          transition: $cardHoverTransition;
-        }
-      }
-      &:hover img {
-        transform: scale($imageScale);
-        filter: opacity($primaryOpacity);
-      }
-    }
-    &--title {
-      width: 100%;
-      overflow: hidden;
-      @include oneLineTextOverflow();
-      position: absolute;
-      @include position($left: 0, $bottom: 0, $zIndex: 100);
-      @include padding(10px);
-      h4 {
-        margin: 8px 0;
-        @include maxWidth($md) {
-          margin: 5px 0;
-        }
-      }
-    }
-    &--care {
-      @include padding(10px 0 0 0);
-      @include displayFlex(
-        $direc: row,
-        $wrap: nowrap,
-        $justy: space-between,
-        $align: center
-      );
-      p {
-        width: 45%;
-        @include textStyles();
-        @include maxWidth($md) {
-          font-size: 12px;
-        }
-      }
-      button {
-        border-radius: 20px;
-        background-color: $purple;
-        cursor: pointer;
-        @include maxWidth($md) {
-          height: auto;
-          font-size: 8px;
-        }
-      }
-      button:hover {
-        filter: opacity($primaryOpacity);
-      }
-    }
-  }
-  &__footer {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    @include displayFlex(
-      $direc: column,
-      $wrap: nowrap,
-      $justy: flex-start,
-      $align: center
-    );
-    h3 {
-      @include h4TextStyles($fontSize: 14px);
-      line-height: 1.5;
-      letter-spacing: 1.71px;
-      color: $textColor;
-      font-family: Inter, sans-serif;
-      cursor: pointer;
-    }
-    h3:hover {
-      color: $purple;
-    }
-    &--row {
-      width: 100%;
-      height: auto;
-
-      @include displayFlex(
-        $direc: row,
-        $wrap: wrap,
-        $justy: center,
-        $align: center
-      );
-    }
-    &--item {
-      width: $itemCardWidth;
-      height: 70px;
-      background-color: $white;
-      border-radius: 5px;
-      position: relative;
-      z-index: $baseZIndex;
-      @include padding(10px);
-      margin: 10px;
-      img {
-        max-height: 100%;
-        max-width: 100%;
         height: auto;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-sizing: border-box;
-
-        @include padding(10px);
-      }
+        transition: $primaryTransition;
+        @include padding(20px 0);
+        cursor: pointer;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        &--item {
+            height: auto;
+            width: 33%;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            z-index: $baseZIndex;
+            img {
+                height: auto;
+                width: 100%;
+                background-image: cover;
+            }
+        }
+        &--item.slick-slide {
+            @include padding(0 5px);
+            z-index: $baseZIndex;
+        }
+        button {
+            opacity: 0;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            z-index: $baseZIndex;
+            top: 40%;
+            border-radius: 50%;
+            padding: 0;
+            @include maxWidth($md) {
+                height: 30px;
+                width: 30px;
+            }
+        }
+        button.slick-prev {
+            left: 5px;
+        }
+        button.slick-next {
+            right: 5px;
+        }
+        &:hover button {
+            opacity: 0.5;
+            transition: $primaryTransition;
+            cursor: pointer;
+        }
     }
-  }
+    &__trending {
+        width: 100%;
+        @include displayFlex(
+            $direc: column,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: flex-start
+        );
+        &--button {
+            height: 30px;
+            width: 100%;
+            z-index: $baseZIndex;
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: space-between,
+                $align: center
+            );
+            margin-bottom: 20px;
+            button {
+                width: 90px;
+                background-color: transparent;
+                border: 1px solid rgb(137, 133, 133);
+                border-radius: 20px;
+                color: $white;
+                cursor: pointer;
+                margin-right: 15px;
+                text-align: center;
+                @include displayFlex(
+                    $direc: row,
+                    $wrap: nowrap,
+                    $justy: center,
+                    $align: center
+                );
+                a {
+                    margin: 0;
+                    padding: 0;
+                    color: $white;
+                    font-size: 13px;
+                    @include displayFlex(
+                        $direc: row,
+                        $wrap: nowrap,
+                        $justy: center,
+                        $align: center
+                    );
+                }
+            }
+        }
+        &--all {
+            width: 100px;
+            cursor: pointer;
+            i {
+                padding-left: 10px;
+            }
+        }
+        &--all:hover {
+            color: $purple;
+        }
+        &--content {
+            height: 320px;
+            width: 100%;
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: space-between,
+                $align: center
+            );
+        }
+        &--col {
+            height: 100%;
+            width: 33%;
+            @include displayFlex(
+                $direc: column,
+                $wrap: nowrap,
+                $justy: space-between,
+                $align: center
+            );
+        }
+        &--card {
+            height: 25%;
+            width: 100%;
+
+            z-index: $baseZIndex;
+            position: relative;
+            cursor: pointer;
+            @include padding(10px);
+            border-radius: 5px;
+            h4 {
+                margin: 0;
+                @include oneLineTextOverflow();
+            }
+        }
+        &--cover {
+            height: 100%;
+            width: 100%;
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: flex-start,
+                $align: center
+            );
+        }
+        &--img {
+            height: 100%;
+            width: 70px;
+            background-size: cover;
+            margin-right: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        &--title {
+            height: 100%;
+            width: 55%;
+            overflow: hidden;
+            @include displayFlex(
+                $direc: column,
+                $wrap: nowrap,
+                $justy: space-around,
+                $align: space-between
+            );
+            span {
+                font-size: 12px;
+                color: $textColor;
+                @include oneLineTextOverflow();
+            }
+        }
+        &--icon {
+            width: 85%;
+            transition: $cardHoverTransition;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include padding(0 10px 0 10px);
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: space-between,
+                $align: center
+            );
+        }
+        &--card:hover .homepage__trending--icon {
+            opacity: 1;
+        }
+        &--card:hover .homepage__trending--img {
+            opacity: 0.3;
+        }
+        &--card:hover {
+            background: $opacityWhite;
+        }
+    }
+    a#link {
+        padding: 0;
+    }
+    &__weekend {
+        height: auto;
+        width: 100%;
+        @include displayFlex(
+            $direc: column,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: flex-start
+        );
+        &--row {
+            height: 95%;
+            width: 100%;
+            @include displayGridAutoFit($width: 200px);
+            gap: 20px !important;
+        }
+        &--card {
+            width: 100%;
+
+            z-index: $baseZIndex;
+            @include displayFlex(
+                $direc: column,
+                $wrap: nowrap,
+                $justy: flex-start,
+                $align: flex-start
+            );
+        }
+        &--cover {
+            height: 75%;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            * {
+                transition: $cardHoverTransition;
+            }
+            img {
+                height: 60%;
+                width: 100%;
+                border-radius: 5px;
+            }
+            &-backdrop {
+                @include backdropStyles(
+                    $left: 0,
+                    $top: 0,
+                    $zIndex: 100,
+                    $height: 100%,
+                    $width: 100%,
+                    $position: absolute,
+                    $opacity: 0,
+                    $visibility: hidden
+                );
+                transition: $secondaryTransition;
+                @include padding(0 10px 0 10px);
+                @include displayFlex(
+                    $direc: row,
+                    $wrap: nowrap,
+                    $justy: space-around,
+                    $align: center
+                );
+                button {
+                    height: 40px;
+                    width: 40px;
+                    background-color: $transparent;
+                    border-radius: 50%;
+                    @include displayFlex();
+                    cursor: pointer;
+                }
+                button:nth-child(2) {
+                    height: 60px;
+                    width: 60px;
+                    & > i {
+                        font-size: 40px;
+                    }
+                }
+                button:hover {
+                    background-color: $opacityWhite;
+                }
+                button:nth-child(2):hover {
+                    background-color: $transparent;
+                }
+                i {
+                    color: $white;
+                    font-size: 17px;
+                }
+            }
+            &:hover > &-backdrop {
+                opacity: 1;
+                visibility: initial;
+
+                background-color: $opacityBlack;
+            }
+            &:hover img {
+                transform: scale(1.1);
+            }
+        }
+
+        &--img {
+            height: 100%;
+            width: 100%;
+        }
+        h4 {
+            @include h4TextStyles($fontSize: 14px);
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        h4:hover {
+            color: $purple;
+        }
+        span {
+            font-size: 14px;
+            color: $textColor;
+            @include twoLineTextOverflow();
+        }
+    }
+    &__new {
+        width: 100%;
+        @include displayFlex(
+            $direc: column,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: flex-start
+        );
+        margin-bottom: 20px;
+        &--row {
+            width: 100%;
+            @include displayGridAutoFit($width: 200px);
+            gap: 20px !important;
+        }
+        &--card {
+            width: 100%;
+            z-index: $baseZIndex;
+            overflow: hidden;
+            @include displayFlex(
+                $direc: column,
+                $wrap: nowrap,
+                $justy: flex-start,
+                $align: flex-start
+            );
+        }
+        &--cover {
+            height: 75%;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            * {
+                transition: $cardHoverTransition;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                border-radius: 5px;
+            }
+            &-backdrop {
+                @include backdropStyles(
+                    $height: 100%,
+                    $width: 100%,
+                    $position: absolute,
+                    $opacity: 0,
+                    $visibility: hidden,
+                    $left: 0,
+                    $top: 0,
+                    $zIndex: 100
+                );
+                transition: $secondaryTransition;
+                visibility: hidden;
+                @include padding(0 10px 0 10px);
+                @include displayFlex(
+                    $direc: row,
+                    $wrap: nowrap,
+                    $justy: space-around,
+                    $align: center
+                );
+                button {
+                    height: 40px;
+                    width: 40px;
+                    background-color: $transparent;
+                    border-radius: 50%;
+                    @include displayFlex();
+                    cursor: pointer;
+                }
+                button:nth-child(2) {
+                    height: 60px;
+                    width: 60px;
+                    & > i {
+                        font-size: 40px;
+                    }
+                }
+                button:hover {
+                    background-color: $opacityWhite;
+                }
+                button:nth-child(2):hover {
+                    background-color: $transparent;
+                }
+                i {
+                    color: $white;
+                    font-size: 17px;
+                }
+            }
+            &:hover > &-backdrop {
+                opacity: 1;
+                visibility: initial;
+
+                background-color: $opacityBlack;
+            }
+            &:hover img {
+                transform: scale(1.1);
+            }
+        }
+
+        &--img {
+            height: 100%;
+            width: 100%;
+        }
+
+        h4 {
+            overflow: hidden;
+            margin: 0;
+            @include padding(5px 0);
+            font-size: 14px;
+            color: $white;
+            @include oneLineTextOverflow();
+        }
+        h4:hover {
+            color: $purple;
+        }
+        a {
+            padding: 0;
+            display: inline;
+            font-size: 14px;
+            color: $textColor;
+        }
+        a:hover {
+            color: $purple;
+        }
+        span {
+            font-size: 14px;
+            color: $textColor;
+            @include twoLineTextOverflow();
+        }
+    }
+    &__chart {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 5px;
+        background-color: #2b4577;
+        @include padding(10px 20px);
+        @include displayFlex(
+            $direc: column,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: flex-start
+        );
+        gap: 10px;
+        &--hashtag {
+            height: 19%;
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: flex-start,
+                $align: center
+            );
+            a {
+                @include h4TextStyles($fontSize: 28px, $fontWeight: 700);
+            }
+            a:hover {
+                color: $green;
+            }
+            button.icon {
+                background-color: $transparent;
+                cursor: pointer;
+                border: none;
+                &:hover {
+                    background-color: $transparent;
+                }
+            }
+            i {
+                color: $white;
+                font-size: 34px;
+            }
+            i:hover {
+                filter: opacity($primaryOpacity);
+            }
+        }
+        &--content {
+            height: 90%;
+            width: 100%;
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: flex-start,
+                $align: center
+            );
+            @include maxWidth($lg) {
+                @include displayFlex(
+                    $direc: column-reverse,
+                    $wrap: nowrap,
+                    $justy: center,
+                    $align: center
+                );
+            }
+
+            gap: 40px;
+        }
+        &--left {
+            width: 41%;
+            @include maxWidth($lg) {
+                width: 100%;
+            }
+        }
+        &--col {
+            height: 100%;
+            width: 100%;
+            @include displayFlex(
+                $direc: column,
+                $wrap: nowrap,
+                $justy: flex-start,
+                $align: center
+            );
+            gap: 10px;
+        }
+        &--card {
+            height: $smallCardHeight;
+            width: 100%;
+            background-color: $opacityWhite2;
+            z-index: $baseZIndex;
+            cursor: pointer;
+            @include padding(10px);
+            border-radius: 5px;
+            h4 {
+                margin: 0;
+                @include oneLineTextOverflow();
+            }
+        }
+        &--card:nth-child(1) > .homepage__chart--cover span.number {
+            -webkit-text-stroke: 2px $blue;
+        }
+        &--card:nth-child(2) > .homepage__chart--cover span.number {
+            -webkit-text-stroke: 2px $green2;
+        }
+        &--card:nth-child(3) > .homepage__chart--cover span.number {
+            -webkit-text-stroke: 2px $orange;
+        }
+        &--cover {
+            height: 100%;
+            width: 100%;
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: flex-start,
+                $align: center
+            );
+            span.number {
+                @include h4TextStyles(
+                    $fontSize: 32px,
+                    $fontWeight: 900,
+                    $margin: 0px
+                );
+                text-align: center;
+                font-family: 'Roboto', sans-serif;
+                white-space: nowrap;
+                color: $transparent;
+                opacity: 1;
+                @include padding(0 20px 0 10px);
+            }
+            span.per {
+                @include h4TextStyles(
+                    $fontSize: 16px,
+                    $fontWeight: 700,
+                    $margin: 0px
+                );
+                line-height: 1.56;
+            }
+        }
+        &--img {
+            height: 100%;
+            width: 70px;
+            position: relative;
+            background-size: cover;
+            margin-right: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        &--title {
+            height: 100%;
+            width: 75%;
+            overflow: hidden;
+            margin-right: 10px;
+            @include displayFlex(
+                $direc: column,
+                $wrap: nowrap,
+                $justy: center,
+                $align: space-between
+            );
+            gap: 5px;
+            a {
+                padding: 0;
+                display: inline;
+                font-size: 14px;
+                color: $textColor;
+            }
+            a:hover {
+                color: $green;
+                z-index: $baseZIndex;
+            }
+            span {
+                font-size: 12px;
+                color: $textColor;
+                @include oneLineTextOverflow();
+
+                z-index: $baseZIndex;
+            }
+        }
+        &--icon {
+            width: 70px;
+            height: 100%;
+            transition: $cardHoverTransition;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            @include padding(0 10px 0 10px);
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: center,
+                $align: center
+            );
+            z-index: 100;
+        }
+        button {
+            cursor: pointer;
+            background-color: $transparent;
+            border: 1px solid $white;
+            border-radius: 18px;
+            color: $white;
+            margin-top: 10px;
+            &:hover {
+                background-color: $opacityWhite2;
+            }
+        }
+        &--card:hover .homepage__chart--icon {
+            opacity: 1;
+        }
+        &--card:hover .homepage__chart--img {
+            opacity: 0.7;
+        }
+        &--card:hover {
+            background: $opacityWhite;
+        }
+        &--right {
+            width: 59%;
+            @include maxWidth($lg) {
+                width: 100%;
+            }
+            &--chart {
+                z-index: 100;
+                @include displayFlex(
+                    $direc: row,
+                    $wrap: nowrap,
+                    $justy: center,
+                    $align: center
+                );
+            }
+        }
+    }
+    &__zingchart {
+        width: 100%;
+        height: auto;
+        @include displayGridAutoFit($width: 100px);
+        gap: 30px !important;
+        @include padding(30px 0 0 0);
+        &--item {
+            width: 100%;
+            height: 100%;
+            z-index: $baseZIndex;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+            * {
+                transition: $cardHoverTransition;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+            &:hover img {
+                transform: scale(1.1);
+                transition: $primaryTransition;
+            }
+        }
+    }
+
+    &__singer {
+        width: 100%;
+        transition: $primaryTransition;
+        cursor: pointer;
+        &--item {
+            cursor: pointer;
+            z-index: $baseZIndex;
+            img {
+                height: 100%;
+                width: 100%;
+
+                @include padding(20px 10px);
+            }
+            &:hover img {
+                filter: opacity($primaryOpacity);
+                * {
+                    transition: $cardHoverTransition;
+                }
+            }
+        }
+        &--item.slick-slide {
+            @include padding(0 5px);
+        }
+        button {
+            opacity: 0;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            z-index: $baseZIndex;
+            top: 40%;
+            border-radius: 50%;
+            padding: 0;
+            @include maxWidth($md) {
+                height: 30px;
+                width: 30px;
+            }
+        }
+        button.slick-prev {
+            left: 5px;
+        }
+        button.slick-next {
+            right: 5px;
+        }
+        &:hover button {
+            opacity: 0.5;
+            transition: $primaryTransition;
+            cursor: pointer;
+        }
+    }
+    &__event {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+        @include displayGridAutoFit($width: $itemCardWidth);
+        gap: 30px !important;
+        overflow: hidden;
+        @include displayFlex(
+            $direc: row,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: center
+        );
+        &--item {
+            width: 100%;
+            height: 100%;
+            z-index: $baseZIndex;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        &--img {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            * {
+                transition: $cardHoverTransition;
+            }
+            span {
+                font-size: 9px;
+                @include padding(2px 4px);
+                border-radius: 2px;
+                color: $titleColor2;
+                background-color: $white;
+                text-transform: uppercase;
+                @include maxWidth($md) {
+                    font-size: 7px;
+                }
+            }
+            h4 {
+                @include oneLineTextOverflow();
+                @include h4TextStyles($margin: 2px);
+                @include maxWidth($md) {
+                    font-size: 14px;
+                }
+            }
+            p {
+                @include textStyles();
+                @include maxWidth($md) {
+                    font-size: 12px;
+                }
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                cursor: pointer;
+                * {
+                    transition: $cardHoverTransition;
+                }
+            }
+            &:hover img {
+                transform: scale($imageScale);
+                filter: opacity($primaryOpacity);
+            }
+        }
+        &--title {
+            width: 100%;
+            overflow: hidden;
+            @include oneLineTextOverflow();
+            position: absolute;
+            @include position($left: 0, $bottom: 0, $zIndex: 100);
+            @include padding(10px);
+            h4 {
+                margin: 8px 0;
+                @include maxWidth($md) {
+                    margin: 5px 0;
+                }
+            }
+        }
+        &--care {
+            @include padding(10px 0 0 0);
+            @include displayFlex(
+                $direc: row,
+                $wrap: nowrap,
+                $justy: space-between,
+                $align: center
+            );
+            p {
+                width: 45%;
+                @include textStyles();
+                @include maxWidth($md) {
+                    font-size: 12px;
+                }
+            }
+            button {
+                border-radius: 20px;
+                background-color: $purple;
+                cursor: pointer;
+                @include maxWidth($md) {
+                    height: auto;
+                    font-size: 8px;
+                }
+            }
+            button:hover {
+                filter: opacity($primaryOpacity);
+            }
+        }
+    }
+    &__footer {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+        @include displayFlex(
+            $direc: column,
+            $wrap: nowrap,
+            $justy: flex-start,
+            $align: center
+        );
+        h3 {
+            @include h4TextStyles($fontSize: 14px);
+            line-height: 1.5;
+            letter-spacing: 1.71px;
+            color: $textColor;
+            font-family: Inter, sans-serif;
+            cursor: pointer;
+        }
+        h3:hover {
+            color: $purple;
+        }
+        &--row {
+            width: 100%;
+            height: auto;
+
+            @include displayFlex(
+                $direc: row,
+                $wrap: wrap,
+                $justy: center,
+                $align: center
+            );
+        }
+        &--item {
+            width: $itemCardWidth;
+            height: 70px;
+            background-color: $white;
+            border-radius: 5px;
+            position: relative;
+            z-index: $baseZIndex;
+            @include padding(10px);
+            margin: 10px;
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-sizing: border-box;
+
+                @include padding(10px);
+            }
+        }
+    }
 }

@@ -1,0 +1,69 @@
+@import '../../scss/variables.scss';
+@import '../../scss/mixins.scss';
+@import '../../scss/base.scss';
+
+.login-page {
+    width: 100%;
+    height: 100vh;
+    background-color: $primaryBlue;
+    @include displayFlex();
+
+    a {
+        width: fit-content;
+    }
+
+    button {
+        width: 100%;
+        text-align: center;
+        border: none;
+        outline: none;
+        background-color: $white;
+        color: $primaryBlue;
+        transition: background-color 0.2s;
+        @include padding(10px);
+        cursor: pointer;
+
+        &:nth-child(1) {
+            width: fit-content;
+        }
+
+        &:hover {
+            background-color: darken($color: $white, $amount: 10);
+        }
+    }
+
+    &__form {
+        width: 360px;
+        height: auto;
+        border-radius: 20px;
+        @include padding(20px);
+        @include displayFlex(column, nowrap, center, center);
+        gap: 10px;
+
+        img {
+            width: 50%;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            outline: none;
+            border: none;
+            color: $primaryBlue;
+            border-radius: 2px;
+            background-color: $white;
+            @include padding(14px 20px);
+        }
+
+        input::placeholder {
+            color: $primaryBlue;
+        }
+    }
+
+    &__redirect {
+        width: 360px;
+        color: $white;
+        @include displayFlex(row, center, space-between);
+        @include padding(0 20px);
+    }
+}

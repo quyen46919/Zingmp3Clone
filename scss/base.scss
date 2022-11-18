@@ -1,0 +1,32 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+// link components
+@import '../components/container/styles.scss';
+@import '../components/left_menu/styles.scss';
+@import '../components/header/styles.scss';
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @include customScrollbar($width: 5px);
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    width: 100%;
+    text-decoration: none;
+    color: $linkColor;
+    font-size: 16px;
+    @include stackRow(10px);
+}
+
+button {
+    padding: 8px 15px;
+    outline: none;
+    border: none;
+}

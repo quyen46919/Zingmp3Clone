@@ -5,57 +5,55 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="icon" href="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.29/static/media/icon_zing_mp3_60.f6b51045.svg" />
+    <title>ZingMP3 | Homepage</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="../../scss/header/styles.css" />
-    <link rel="stylesheet" href="../menu_respon/styles.css">
-    <title>album page</title>
 </head>
 
 <body>
-    <div class="home">
-        <div class="home__menu">
-            <a href="/index.html" class="home__menu--logo"></a>
+    <div class="container">
+        <div class="left-menu">
+            <a href="/index.html" class="left-menu__box--logo"></a>
             <a href="../profile_page/index.html" tooltip="Cá nhân">
-                <i class="fa-solid fa-list-ol"></i>
-                <span>Cá nhân</span>
+              <i class="fa-solid fa-list-ol"></i>
+              <span>Cá nhân</span>
             </a>
             <a href="#" tooltip="Khám phá">
-                <i class="fa-solid fa-music"></i>
-                <span>Khám phá</span>
+              <i class="fa-solid fa-music"></i>
+              <span>Khám phá</span>
             </a>
             <a href="#" tooltip="#zingchart">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>#zingchart</span>
+              <i class="fa-solid fa-chart-line"></i>
+              <span>#zingchart</span>
             </a>
             <a href="#" tooltip="Theo dõi">
-                <i class="fa-solid fa-folder-plus"></i>
-                <span>Theo dõi</span>
+              <i class="fa-solid fa-folder-plus"></i>
+              <span>Theo dõi</span>
             </a>
-            <div class="home__menu--divider"></div>
+            <div class="left-menu__box--divider"></div>
             <a href="#" tooltip="Nhạc mới">
-                <i class="fa-solid fa-music"></i>
-                <span>Nhạc mới</span>
+              <i class="fa-solid fa-music"></i>
+              <span>Nhạc mới</span>
             </a>
             <a href="#" tooltip="Thể loại">
-                <i class="fa-solid fa-table-list"></i>
-                <span>Thể loại</span>
+              <i class="fa-solid fa-table-list"></i>
+              <span>Thể loại</span>
             </a>
             <a href="/pages/top100/index.html" tooltip="Top 100">
-                <i class="fa-solid fa-ranking-star"></i>
-                <span>Top 100</span>
+              <i class="fa-solid fa-ranking-star"></i>
+              <span>Top 100</span>
             </a>
             <a href="#" tooltip="MV">
-                <i class="fa-solid fa-play"></i>
-                <span>MV</span>
+              <i class="fa-solid fa-play"></i>
+              <span>MV</span>
             </a>
-            <div class="home__menu--vip">
-                <div>Nghe nhạc không quảng cáo cùng kho nhạc VIP</div>
-                <button>NÂNG CẤP VIP</button>
+            <div class="left-menu__box--vip">
+              <div>Nghe nhạc không quảng cáo cùng kho nhạc VIP</div>
+              <button>NÂNG CẤP VIP</button>
             </div>
-        </div>
+          </div>
         <!-- end left menu -->
         <div class="album-page">
             <div class="header">
@@ -82,19 +80,19 @@
 
                     <div class="header--popup" id="header--popup">
                         <div class="header--popup--vip">
-                            <div class="header--popup--upgrade">
-                                <i class="fa-regular fa-gem"></i>
-                                <p>Nâng cấp VIP</p>
-                            </div>
-                            <div class="header--popup--buy">
-                                <i class="fa-regular fa-credit-card"></i>
-                                <p>Mua code VIP</p>
-                            </div>
+                            <a href="../auth_page/login.html" class="header--popup--row">
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                <p>Đăng nhập</p>
+                            </a>
+                            <a href="../auth_page/logup.html" class="header--popup--row">
+                                <i class="fa-sharp fa-solid fa-user-plus"></i>
+                                <p>Đăng ký</p>
+                            </a>
                         </div>
-                        <div class="header--popup--logout">
-                            <i class="fa-regular fa-user"></i>
+                        <a class="header--popup--row">
+                            <i class="fa-solid fa-right-from-bracket"></i>
                             <p>Đăng xuất</p>
-                        </div>
+                        </a>
                     </div>
                     <div onclick="toggleMenu()" class="header--backdrop" id="header--backdrop"></div>
                 </div>
@@ -744,7 +742,7 @@
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
     
-    <script src="../../scss/header/accountPopUp.js"></script>
+    <script src="../../components/header/accountPopUp.js"></script>
 </body>
 
 </html>
