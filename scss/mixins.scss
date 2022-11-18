@@ -42,6 +42,34 @@
     justify-content: $justy;
 }
 
+@mixin formInputStyle($width: 360px) {
+    width: $width;
+    height: auto;
+    border-radius: 20px;
+    @include padding(20px);
+    @include displayFlex(column, nowrap, center, center);
+    gap: 10px;
+
+    img {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        outline: none;
+        border: none;
+        color: $primaryBlue;
+        border-radius: 2px;
+        background-color: $white;
+        @include padding(14px 20px);
+    }
+
+    input::placeholder {
+        color: $primaryBlue;
+    }
+}
+
 @mixin customScrollbar($width: 10px, $height: 0px) {
     &::-webkit-scrollbar {
         -webkit-appearance: none;
